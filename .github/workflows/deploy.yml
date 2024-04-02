@@ -36,4 +36,4 @@ jobs:
         with:
           project: "ricardorobles"
           entrypoint: "https://deno.land/std@0.217.0/http/file_server.ts" # 📝 Update the entrypoint if necessary
-          root: "dist/angular_app" # 📝 Update the root if necessary
+          root: "dist/ricardo-portafolios/browser" # 📝 Update the root if necessary
