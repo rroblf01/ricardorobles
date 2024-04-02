@@ -1,10 +1,27 @@
-import { Component } from '@angular/core';
+import { Component } from "@angular/core";
+import { RouterOutlet } from "@angular/router";
+import { NavbarComponent } from "./components/navbar/navbar.component";
+import { AboutComponent } from "./components/about/about.component";
+import { ProjectsComponent } from "./components/projects/projects.component";
+import { ContactComponent } from "./components/contact/contact.component";
+import { ExperienceComponent } from "./components/experience/experience.component";
+import { TechComponent } from "./components/tech/tech.component";
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  selector: "app-root",
+  standalone: true,
+  imports: [
+    RouterOutlet,
+    NavbarComponent,
+    AboutComponent,
+    ProjectsComponent,
+    ContactComponent,
+    ExperienceComponent,
+    TechComponent,
+  ],
+  templateUrl: "./app.component.html",
+  styleUrl: "./app.component.css",
 })
 export class AppComponent {
-  title = 'angular_app';
+  title = "ricardo-portafolios";
 }

@@ -1,0 +1,26 @@
+<p class="text-lg">{{title}}</p>
+<div class="relative max-w-2xl">
+    <div class="absolute top-0 h-full border-r-2 border-gray-500 left-3"></div>
+    <ul class="space-y-10">
+        <li>
+            <div class="flex items-center">
+                <span class="w-6 h-6 bg-gray-500 rounded-full"></span>
+                <h5 class="ml-4 font-bold text-gray-600">Actualidad</h5>
+            </div>
+            <div class="ml-12">
+                <p class="text-sm text-gray-500 min-h-0"> </p>
+            </div>
+        </li>
+        @for (element of elements; track element){
+            <li>
+                <div class="flex items-center">
+                    <span class="w-6 h-6 bg-gray-500 rounded-full"></span>
+                    <h5 class="ml-4 font-bold text-gray-600">{{element.title}}</h5>
+                </div>
+                <div class="ml-12">
+                    <p class="text-sm text-gray-500 min-h-0">{{element.subtitle}}</p>
+                </div>
+            </li>
+        }
+    </ul>
+</div>
