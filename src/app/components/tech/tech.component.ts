@@ -41,7 +41,7 @@ export class TechComponent {
     {
       title: "Typescript",
       subtitle:
-        "Lenguaje que uso para scripts o Front con Frameworks o vanilla. Usado profesionalmente desde 2020.",
+        "Lenguaje que uso para scripts o Front con Frameworks. Usado profesionalmente desde 2020.",
       imgPath: "assets/typescript.svg",
     },
     {
