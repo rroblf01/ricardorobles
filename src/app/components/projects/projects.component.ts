@@ -15,6 +15,12 @@ export class ProjectsComponent {
     imgPath: string;
   }[] = [
     {
+      url: "https://ricardorobles.deno.dev/",
+      title: "Portafolio",
+      description: "Este mismo portafolio, para ello he usado Angular 17.",
+      imgPath: "assets/portafolio.webp",
+    },
+    {
       url: "https://ricardo-image-compressor.deno.dev/",
       title: "Image Compressor",
       description:
