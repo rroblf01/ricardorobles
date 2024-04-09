@@ -15,6 +15,12 @@ export class ProjectsComponent {
     imgPath: string;
   }[] = [
     {
+      url: "https://ricardo-wordle.vercel.app/",
+      title: "Fast Wordle",
+      description: "Un clon de Wordle hecho con FastAPI y HTML/CSS/JS vanilla.",
+      imgPath: "assets/fastwordle.webp",
+    },
+    {
       url: "https://ricardorobles.deno.dev/",
       title: "Portafolio",
       description: "Este mismo portafolio, para ello he usado Angular 17.",
