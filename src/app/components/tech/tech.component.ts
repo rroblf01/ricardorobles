@@ -5,7 +5,6 @@ import { Component } from "@angular/core";
   standalone: true,
   imports: [],
   templateUrl: "./tech.component.html",
-  styleUrl: "./tech.component.css",
 })
 export class TechComponent {
   techs: { title: string; subtitle: string; imgPath: string }[] = [

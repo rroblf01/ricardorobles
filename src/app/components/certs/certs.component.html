@@ -1,0 +1,28 @@
+<div id="certs" class="text-center">
+    <h3 class="text-2xl mt-10">Certificaciones</h3>
+    <div class="lg:flex flex-wrap justify-center mt-10 space-x-2 space-y-2">
+        @for (cert of certs; track cert) {
+        <div class="flex items-center justify-center">
+            <div class="relative flex w-full max-w-[48rem] flex-row rounded-xl bg-clip-border text-gray-700 shadow-md">
+                <div
+                    class="relative m-0 w-auto shrink-0 overflow-hidden rounded-xl rounded-r-none bg-white bg-clip-border text-gray-700">
+                    <img src="{{ cert.imgPath }}" alt="image" class="h-full w-full object-cover" />
+                </div>
+                <div class="p-6">
+                    <h6
+                        class="mb-4 block font-sans text-base font-semibold uppercase leading-relaxed tracking-normal text-pink-500 antialiased">
+                        {{ cert.title }}
+                    </h6>
+                    <p class="mb-8 block font-sans text-base font-normal leading-relaxed text-gray-700 antialiased">
+                        {{ cert.description }}
+                    </p>
+                </div>
+            </div>
+
+        </div>
+        }
+    </div>
+
+
+
+</div>
