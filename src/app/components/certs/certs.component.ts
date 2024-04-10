@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
+import { NgOptimizedImage } from '@angular/common'
 
 @Component({
   selector: 'app-certs',
   standalone: true,
-  imports: [],
+  imports: [NgOptimizedImage],
   templateUrl: './certs.component.html',
 })
 export class CertsComponent {
