@@ -5,22 +5,22 @@
         <li>
             <div class="flex items-center">
                 <span class="w-6 h-6 bg-gray-500 rounded-full"></span>
-                <h5 class="ml-4 font-bold text-gray-600">Actualidad</h5>
+                <h3 class="ml-4 font-bold text-gray-600">Actualidad</h3>
             </div>
             <div class="ml-12">
-                <p class="text-sm text-gray-500 min-h-0"> </p>
+                <p class="text-sm text-[#4A4A4A] min-h-0"> </p>
             </div>
         </li>
         @for (element of elements; track element){
-            <li>
-                <div class="flex items-center">
-                    <span class="w-6 h-6 bg-gray-500 rounded-full"></span>
-                    <h5 class="ml-4 font-bold text-gray-600">{{element.title}}</h5>
-                </div>
-                <div class="ml-12">
-                    <p class="text-sm text-gray-500 min-h-0">{{element.subtitle}}</p>
-                </div>
-            </li>
+        <li>
+            <div class="flex items-center">
+                <span class="w-6 h-6 bg-gray-500 rounded-full"></span>
+                <h3 class="ml-4 font-bold text-gray-600">{{element.title}}</h3>
+            </div>
+            <div class="ml-12">
+                <p class="text-sm text-[#4A4A4A] min-h-0">{{element.subtitle}}</p>
+            </div>
+        </li>
         }
     </ul>
 </div>
