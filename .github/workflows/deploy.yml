@@ -35,5 +35,5 @@ jobs:
         uses: denoland/deployctl@v1
         with:
           project: "ricardorobles"
-          entrypoint: "https://deno.land/std@0.217.0/http/file_server.ts -H "Cache-Control: max-age=2592000"" # 📝 Update the entrypoint if necessary
+          entrypoint: "https://deno.land/std@0.217.0/http/file_server.ts -H 'Cache-Control: max-age=2592000'" # 📝 Update the entrypoint if necessary
           root: "dist/ricardo-portafolios/browser" # 📝 Update the root if necessary
