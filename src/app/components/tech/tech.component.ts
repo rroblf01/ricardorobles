@@ -1,9 +1,10 @@
 import { Component } from "@angular/core";
+import { NgOptimizedImage } from '@angular/common'
 
 @Component({
   selector: "app-tech",
   standalone: true,
-  imports: [],
+  imports: [NgOptimizedImage],
   templateUrl: "./tech.component.html",
 })
 export class TechComponent {

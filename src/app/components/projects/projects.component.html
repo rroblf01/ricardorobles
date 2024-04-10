@@ -2,34 +2,33 @@
     <h3 class="text-2xl mt-10">Proyectos que he desarrollado ultimamente.</h3>
     <div class="lg:flex flex-wrap justify-center mt-10 space-x-2 space-y-2">
         @for (project of projects; track project) {
-            <div class="flex items-center justify-center">
-                <div class="relative flex w-full max-w-[48rem] flex-row rounded-xl bg-clip-border text-gray-700 shadow-md">
-                  <div class="relative m-0 w-2/5 shrink-0 overflow-hidden rounded-xl rounded-r-none bg-white bg-clip-border text-gray-700">
+        <div class="flex items-center justify-center">
+            <div class="relative flex w-full max-w-[48rem] flex-row rounded-xl bg-clip-border text-gray-700 shadow-md">
+                <div
+                    class="relative m-0 w-2/5 shrink-0 overflow-hidden rounded-xl rounded-r-none bg-white bg-clip-border text-gray-700">
                     <a href="{{ project.url }}" target="_blank">
-                        <img
-                        src="{{ project.imgPath }}"
-                        alt="image"
-                        class="h-full w-full object-cover"
-                        />
+                        <img ngSrc="{{ project.imgPath }}" alt="image" class="h-full w-full object-cover" width="309"
+                            height="205" />
                     </a>
-                  </div>
-                  <div class="p-6">
-                      <h6 class="mb-4 block font-sans text-base font-semibold uppercase leading-relaxed tracking-normal text-pink-500 antialiased">
-                          {{ project.title }}
-                        </h6>
-                        <p class="mb-8 block font-sans text-base font-normal leading-relaxed text-gray-700 antialiased">
-                            {{ project.description }}
-                        </p>
-                        <a href="{{ project.url }}" target="_blank" class="text-gray-500">
-                            <p>{{project.url}}</p>
-                    </a>
-                    </div>
                 </div>
-        
-              </div>
+                <div class="p-6">
+                    <h6
+                        class="mb-4 block font-sans text-base font-semibold uppercase leading-relaxed tracking-normal text-pink-500 antialiased">
+                        {{ project.title }}
+                    </h6>
+                    <p class="mb-8 block font-sans text-base font-normal leading-relaxed text-gray-700 antialiased">
+                        {{ project.description }}
+                    </p>
+                    <a href="{{ project.url }}" target="_blank" class="text-gray-500">
+                        <p>{{project.url}}</p>
+                    </a>
+                </div>
+            </div>
+
+        </div>
         }
     </div>
 
-    
+
 
 </div>
