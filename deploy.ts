@@ -4,6 +4,6 @@ Deno.serve((req) => {
   const pathname = new URL(req.url).pathname;
     return serveDir(req, {
         fsRoot: "dist/ricardo-portafolios/browser",
-      headers: ["Cache-Control: max-age=336000"],
+      headers: ["Cache-Control: max-age=31536000"],
     });
 });
