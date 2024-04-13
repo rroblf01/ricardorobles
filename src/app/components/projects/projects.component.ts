@@ -15,6 +15,12 @@ export class ProjectsComponent {
     imgPath: string;
   }[] = [
     {
+      url: "https://ricardotypefast.deno.dev/",
+      title: "Type Fast",
+      description: "Una herramienta destinada a saber qué tan rápido eres escribiendo, está hecha con Angular.",
+      imgPath: "assets/typefast.webp",
+    },
+    {
       url: "https://ricardo-wordle.vercel.app/",
       title: "Fast Wordle",
       description: "Un clon de Wordle hecho con FastAPI y HTML/CSS/JS vanilla.",
