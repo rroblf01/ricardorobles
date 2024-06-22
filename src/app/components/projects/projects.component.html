@@ -16,12 +16,22 @@
                         class="mb-4 block font-sans text-base font-semibold uppercase leading-relaxed tracking-normal text-[#8F0F37] antialiased">
                         {{ project.title }}
                     </h4>
-                    <p class="mb-8 block font-sans text-base font-normal leading-relaxed text-gray-700 antialiased">
+                    <p class="mb-2 block font-sans text-base font-normal leading-relaxed text-gray-700 antialiased">
                         {{ project.description }}
                     </p>
-                    <a href="{{ project.url }}" target="_blank" class="text-[#4A4A4A]">
+                    <a href="{{ project.url }}" target="_blank" class="text-[#4A4A4A] underline">
                         <p>{{project.url}}</p>
                     </a>
+                    <div class="text-xs mt-2">
+                        @for (source of project.sources; track source) {
+                        <div class="text-">
+                            <p> {{source.text}}</p>
+                            <a href="{{ source.url }}" target="_blank" class="text-[#4A4A4A] underline">
+                                <p>{{source.url}}</p>
+                            </a>
+                        </div>
+                        }
+                    </div>
                 </div>
             </div>
 
