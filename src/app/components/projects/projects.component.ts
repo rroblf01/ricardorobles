@@ -15,6 +15,13 @@ export class ProjectsComponent {
     imgPath: string;
   }[] = [
     {
+      url: "https://ricardo-password-manager.deno.dev/",
+      title: "Password Manager",
+      description:
+        "Un gestor de contraseñas creado con Angular y Hono. He usado JWT para la autenticación y la base de datos de Deno KV.",
+      imgPath: "assets/password-manager.webp",
+    },
+    {
       url: "https://ricardotypefast.deno.dev/",
       title: "Type Fast",
       description: "Una herramienta destinada a saber qué tan rápido eres escribiendo, está hecha con Angular.",
@@ -29,7 +36,7 @@ export class ProjectsComponent {
     {
       url: "https://ricardorobles.deno.dev/",
       title: "Portafolio",
-      description: "Este mismo portafolio, para ello he usado Angular 17.",
+      description: "Este mismo portafolio, para ello he usado Angular.",
       imgPath: "assets/portafolio.webp",
     },
     {
