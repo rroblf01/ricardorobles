@@ -27,7 +27,7 @@ jobs:
         run: "deno install --allow-scripts && deno task build" # 📝 Update the build command if necessary
 
       - name: Upload to Deno Deploy
-        uses: denoland/deployctl@v1.12.0
+        uses: denoland/deployctl@1.12.0
         with:
           project: "ricardorobles"
           entrypoint: "deploy.ts" # 📝 Update the entrypoint if necessary
