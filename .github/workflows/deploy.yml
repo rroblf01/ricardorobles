@@ -24,7 +24,7 @@ jobs:
           deno-version: v2.0.0
 
       - name: Build step
-        run: "deno install && deno task build" # 📝 Update the build command if necessary
+        run: "deno install --allow-scripts && deno task build" # 📝 Update the build command if necessary
 
       - name: Upload to Deno Deploy
         uses: denoland/deployctl@v1.12.0
