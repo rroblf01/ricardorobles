@@ -21,13 +21,13 @@ jobs:
       - name: Install Deno
         uses: denoland/setup-deno@v1
         with:
-          deno-version: v2.0.0
+          deno-version: v2.0.6
 
       - name: Build step
         run: "deno install --allow-scripts && deno task build" # 📝 Update the build command if necessary
 
       - name: Upload to Deno Deploy
-        uses: denoland/deployctl@1.12.0
+        uses: denoland/deployctl@1.13.0
         with:
           project: "ricardorobles"
           entrypoint: "deploy.ts" # 📝 Update the entrypoint if necessary
