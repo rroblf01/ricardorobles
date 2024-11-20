@@ -2,10 +2,9 @@ import { Component } from "@angular/core";
 import { NgOptimizedImage } from '@angular/common'
 
 @Component({
-  selector: "app-projects",
-  standalone: true,
-  imports: [NgOptimizedImage],
-  templateUrl: "./projects.component.html",
+    selector: "app-projects",
+    imports: [NgOptimizedImage],
+    templateUrl: "./projects.component.html"
 })
 export class ProjectsComponent {
   projects: {

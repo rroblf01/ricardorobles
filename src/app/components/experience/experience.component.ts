@@ -2,10 +2,9 @@ import { Component } from "@angular/core";
 import { TimelineComponent } from "../timeline/timeline.component";
 
 @Component({
-  selector: "app-experience",
-  standalone: true,
-  imports: [TimelineComponent],
-  templateUrl: "./experience.component.html",
+    selector: "app-experience",
+    imports: [TimelineComponent],
+    templateUrl: "./experience.component.html"
 })
 export class ExperienceComponent {
   studiesTitle: string = "Estudios";

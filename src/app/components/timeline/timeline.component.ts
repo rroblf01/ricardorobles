@@ -1,10 +1,9 @@
 import { Component, Input } from "@angular/core";
 
 @Component({
-  selector: "app-timeline",
-  standalone: true,
-  imports: [],
-  templateUrl: "./timeline.component.html",
+    selector: "app-timeline",
+    imports: [],
+    templateUrl: "./timeline.component.html"
 })
 export class TimelineComponent {
   @Input()

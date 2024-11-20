@@ -2,10 +2,9 @@ import { Component } from "@angular/core";
 import { NgOptimizedImage } from '@angular/common'
 
 @Component({
-  selector: "app-tech",
-  standalone: true,
-  imports: [NgOptimizedImage],
-  templateUrl: "./tech.component.html",
+    selector: "app-tech",
+    imports: [NgOptimizedImage],
+    templateUrl: "./tech.component.html"
 })
 export class TechComponent {
   techs: { title: string; subtitle: string; imgPath: string }[] = [

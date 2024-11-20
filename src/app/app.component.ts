@@ -9,20 +9,19 @@ import { TechComponent } from "./components/tech/tech.component";
 import { CertsComponent } from "./components/certs/certs.component";
 
 @Component({
-  selector: "app-root",
-  standalone: true,
-  imports: [
-    RouterOutlet,
-    NavbarComponent,
-    AboutComponent,
-    ProjectsComponent,
-    ContactComponent,
-    ExperienceComponent,
-    TechComponent,
-    CertsComponent
-  ],
-  templateUrl: "./app.component.html",
-  styleUrl: "./app.component.css",
+    selector: "app-root",
+    imports: [
+        RouterOutlet,
+        NavbarComponent,
+        AboutComponent,
+        ProjectsComponent,
+        ContactComponent,
+        ExperienceComponent,
+        TechComponent,
+        CertsComponent
+    ],
+    templateUrl: "./app.component.html",
+    styleUrl: "./app.component.css"
 })
 export class AppComponent {
   title = "ricardo-portafolios";
