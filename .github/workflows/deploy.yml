@@ -31,4 +31,7 @@ jobs:
         with:
           project: "ricardorobles"
           entrypoint: "deploy.ts" # 📝 Update the entrypoint if necessary
+          include: |
+            deploy.ts
+            ./dist
           #root: "dist/ricardo-portafolios/browser" # 📝 Update the root if necessary
