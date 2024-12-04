@@ -34,4 +34,3 @@ jobs:
           include: |
             deploy.ts
             ./dist
-          #root: "dist/ricardo-portafolios/browser" # 📝 Update the root if necessary
