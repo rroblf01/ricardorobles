@@ -15,6 +15,26 @@ export class ProjectsComponent {
     sources: { url: string; text: string }[];
   }[] = [
     {
+      url: "https://github.com/rroblf01/bunnyhopapi",
+      title: "Bunny Estimates",
+      description:
+        "Framework http escrito en python desde cero. Swagger automático, CORS, validación de tipos y excelente rendimiento.",
+      imgPath: "assets/bunnyhopapi.png",
+      sources: [
+        {url: "https://github.com/rroblf01/bunnyhopapi", text: "Framework Code"},
+      ]
+    },
+    {
+      url: "https://github.com/rroblf01/bunny-estimates",
+      title: "Bunny Estimates",
+      description:
+        "Una herramienta para calcular el precio de un proyecto, está hecha con Nuxt y Django.",
+      imgPath: "assets/poker.jpeg",
+      sources: [
+        {url: "https://github.com/rroblf01/bunny-estimates", text: "Code"},
+      ]
+    },
+    {
       url: "https://ricardo-password-manager.deno.dev/",
       title: "Password Manager",
       description:
