@@ -30,7 +30,6 @@ jobs:
         uses: denoland/deployctl@1.13.0
         with:
           project: "ricardorobles"
-          entrypoint: "deploy.ts" # 📝 Update the entrypoint if necessary
+          entrypoint: "./dist/ricardo-portafolios/server/server.mjs" # 📝 Update the entrypoint if necessary
           include: |
-            deploy.ts
             ./dist
