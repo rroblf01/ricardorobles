@@ -19,7 +19,7 @@ jobs:
       - name: Install Deno
         uses: denoland/setup-deno@v1
         with:
-          deno-version: v2.3.5
+          deno-version: v2.3.7
 
       - name: Build step
         run: "deno install --allow-scripts && deno task build" # 📝 Update the build command if necessary
