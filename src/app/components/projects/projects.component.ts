@@ -15,6 +15,16 @@ export class ProjectsComponent {
     sources: { url: string; text: string }[];
   }[] = [
     {
+      url: "https://github.com/rroblf01/sushi-bunny",
+      title: "Sushi Bunny",
+      description:
+        "Una simulación de una mesa en un restaurante de sushi, donde puedes reunirte con amigos y contar cuanto sushi has comido.",
+      imgPath: "assets/sushi-bunny.png",
+      sources: [
+        {url: "https://sushi-bunny.onrender.com/", text: "Code"},
+      ]
+    },
+    {
       url: "https://github.com/rroblf01/bunnyhopapi",
       title: "Bunny Estimates",
       description:
