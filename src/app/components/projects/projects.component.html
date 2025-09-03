@@ -7,7 +7,7 @@
                 <div
                     class="relative m-0 w-2/5 shrink-0 overflow-hidden rounded-xl rounded-r-none bg-white bg-clip-border text-gray-700">
                     <a href="{{ project.url }}" target="_blank">
-                        <img ngSrc="{{ project.imgPath }}" alt="image" class="h-full w-full object-cover" width="309"
+                        <img [priority]="$first" ngSrc="{{ project.imgPath }}" alt="image" class="h-full w-full object-cover" width="309"
                             height="205" />
                     </a>
                 </div>
