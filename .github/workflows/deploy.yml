@@ -23,7 +23,7 @@ jobs:
       - uses: oven-sh/setup-bun@v2
 
       - name: Build step
-        run: "bun install && bun run build" # 📝 Update the build command if necessary
+        run: "bun install && bun run build --source-map" # 📝 Update the build command if necessary
 
       - name: Upload to Deno Deploy
         uses: denoland/deployctl@1.13.0

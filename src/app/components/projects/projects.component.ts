@@ -29,7 +29,7 @@ export class ProjectsComponent {
       title: "Bunny Estimates",
       description:
         "Framework http escrito en python desde cero. Swagger automático, CORS, validación de tipos y excelente rendimiento.",
-      imgPath: "assets/bunnyhopapi.png",
+      imgPath: "assets/bunnyhopapi.jpg",
       sources: [
         {url: "https://github.com/rroblf01/bunnyhopapi", text: "Framework Code"},
       ]
