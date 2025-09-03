@@ -13,6 +13,7 @@ export class ProjectsComponent {
     description: string;
     imgPath: string;
     sources: { url: string; text: string }[];
+    techs: { path: string; name: string }[];
   }[] = [
     {
       url: "https://github.com/rroblf01/sushi-bunny",
@@ -22,7 +23,8 @@ export class ProjectsComponent {
       imgPath: "assets/sushi-bunny.webp",
       sources: [
         {url: "https://sushi-bunny.onrender.com/", text: "Code"},
-      ]
+      ],
+      techs: [{path: "assets/django.svg", name: "Django"}, {path: "assets/python.svg", name: "Python"}]
     },
     {
       url: "https://github.com/rroblf01/bunnyhopapi",
@@ -32,7 +34,8 @@ export class ProjectsComponent {
       imgPath: "assets/bunnyhopapi.webp",
       sources: [
         {url: "https://github.com/rroblf01/bunnyhopapi", text: "Framework Code"},
-      ]
+      ],
+      techs: [{path: "assets/python.svg", name: "Python"}]
     },
     {
       url: "https://github.com/rroblf01/bunny-estimates",
@@ -42,7 +45,8 @@ export class ProjectsComponent {
       imgPath: "assets/poker.webp",
       sources: [
         {url: "https://github.com/rroblf01/bunny-estimates", text: "Code"},
-      ]
+      ],
+      techs: [{path: "assets/django.svg", name: "Django"}, {path: "assets/nuxt.svg", name: "Nuxt"}, {path: "assets/typescript.svg", name: "TypeScript"}]
     },
     {
       url: "https://ricardo-password-manager.deno.dev/",
@@ -53,7 +57,8 @@ export class ProjectsComponent {
       sources: [
         {url: "https://github.com/rroblf01/ricardo-password-manager", text: "Front Code"},
         {url: "https://github.com/rroblf01/ricardo-passwords", text: "Back Code"}
-      ]
+      ],
+      techs: [{path: "assets/angular.svg", name: "Angular"}, {path: "assets/typescript.svg", name: "TypeScript"}]
     },
     {
       url: "https://ricardotypefast.deno.dev/",
@@ -62,7 +67,8 @@ export class ProjectsComponent {
       imgPath: "assets/typefast.webp",
       sources: [
         {url: "https://github.com/rroblf01/typefast", text: "Code"},
-      ]
+      ],
+      techs: [{path: "assets/angular.svg", name: "Angular"}, {path: "assets/typescript.svg", name: "TypeScript"}]
     },
     {
       url: "https://ricardo-wordle.vercel.app/",
@@ -71,7 +77,8 @@ export class ProjectsComponent {
       imgPath: "assets/fastwordle.webp",
       sources: [
         {url: "https://github.com/rroblf01/fast-wordle", text: "Code"},
-      ]
+      ],
+      techs: [{path: "assets/fastapi.svg", name: "FastAPI"}, {path: "assets/html.svg", name: "HTML"}, {path: "assets/css.svg", name: "CSS"}, {path: "assets/javascript.svg", name: "JavaScript"}]
     },
     {
       url: "https://ricardorobles.deno.dev/",
@@ -80,7 +87,8 @@ export class ProjectsComponent {
       imgPath: "assets/portafolio.webp",
       sources: [
         {url: "https://github.com/rroblf01/ricardorobles", text: "Code"},
-      ]
+      ],
+      techs: [{path: "assets/angular.svg", name: "Angular"}, {path: "assets/typescript.svg", name: "TypeScript"}]
     },
     {
       url: "https://ricardo-image-compressor.deno.dev/",
@@ -90,7 +98,8 @@ export class ProjectsComponent {
       imgPath: "assets/compress.webp",
       sources: [
         {url: "https://github.com/rroblf01/deno-compress", text: "Code"},
-      ]
+      ],
+      techs: [{path: "assets/html.svg", name: "HTML"}, {path: "assets/css.svg", name: "CSS"}, {path: "assets/javascript.svg", name: "JavaScript"}]
     },
     {
       url: "https://ricardo-api-mock.deno.dev/",
@@ -100,7 +109,8 @@ export class ProjectsComponent {
       imgPath: "assets/mock-api.webp",
       sources: [
         {url: "https://github.com/rroblf01/deno-mock-api", text: "Code"},
-      ]
+      ],
+      techs: [{path: "assets/html.svg", name: "HTML"}, {path: "assets/css.svg", name: "CSS"}, {path: "assets/javascript.svg", name: "JavaScript"}]
     },
     {
       url: "https://ricardo-jsontointerface.deno.dev/",
@@ -110,7 +120,8 @@ export class ProjectsComponent {
       imgPath: "assets/json-interface.webp",
       sources: [
         {url: "https://github.com/rroblf01/deno-jsontointerface", text: "Code"},
-      ]
+      ],
+      techs: [{path: "assets/html.svg", name: "HTML"}, {path: "assets/css.svg", name: "CSS"}, {path: "assets/javascript.svg", name: "JavaScript"}, {path: "assets/typescript.svg", name: "TypeScript"}]
     },
   ];
 }

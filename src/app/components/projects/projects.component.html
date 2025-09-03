@@ -3,7 +3,7 @@
     <div class="lg:flex flex-wrap justify-center mt-10 space-x-2 space-y-2">
         @for (project of projects; track project) {
         <div class="flex items-center justify-center">
-            <div class="relative flex w-full max-w-[48rem] flex-row rounded-xl bg-clip-border text-gray-700 shadow-md">
+            <div class="relative flex w-full max-w-[48rem] flex-row rounded-xl bg-clip-border text-gray-700 shadow-md h-full">
                 <div
                     class="relative m-0 w-2/5 shrink-0 overflow-hidden rounded-xl rounded-r-none bg-white bg-clip-border text-gray-700">
                     <a href="{{ project.url }}" target="_blank">
@@ -30,6 +30,11 @@
                                 <p>{{source.url}}</p>
                             </a>
                         </div>
+                        }
+                    </div>
+                    <div class="text-xs mt-2 flex items-center justify-center gap-2">
+                        @for (tech of project.techs; track tech.path) {
+                            <img ngSrc="{{ tech.path }}" alt="{{ tech.name }}" title="{{ tech.name }}" width="30" height="30"/>
                         }
                     </div>
                 </div>
