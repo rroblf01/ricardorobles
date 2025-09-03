@@ -19,7 +19,7 @@ export class ProjectsComponent {
       title: "Sushi Bunny",
       description:
         "Una simulación de una mesa en un restaurante de sushi, donde puedes reunirte con amigos y contar cuanto sushi has comido.",
-      imgPath: "assets/sushi-bunny.png",
+      imgPath: "assets/sushi-bunny.webp",
       sources: [
         {url: "https://sushi-bunny.onrender.com/", text: "Code"},
       ]
@@ -29,7 +29,7 @@ export class ProjectsComponent {
       title: "Bunny Estimates",
       description:
         "Framework http escrito en python desde cero. Swagger automático, CORS, validación de tipos y excelente rendimiento.",
-      imgPath: "assets/bunnyhopapi.jpg",
+      imgPath: "assets/bunnyhopapi.webp",
       sources: [
         {url: "https://github.com/rroblf01/bunnyhopapi", text: "Framework Code"},
       ]
@@ -39,7 +39,7 @@ export class ProjectsComponent {
       title: "Bunny Estimates",
       description:
         "Una herramienta para calcular el precio de un proyecto, está hecha con Nuxt y Django.",
-      imgPath: "assets/poker.jpeg",
+      imgPath: "assets/poker.webp",
       sources: [
         {url: "https://github.com/rroblf01/bunny-estimates", text: "Code"},
       ]
