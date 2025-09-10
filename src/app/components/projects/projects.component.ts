@@ -1,6 +1,18 @@
 import { Component } from "@angular/core";
 import { NgOptimizedImage } from '@angular/common'
 
+const TECHS = {
+  django: { path: "assets/django.svg", name: "Django" },
+  python: { path: "assets/python.svg", name: "Python" },
+  nuxt: { path: "assets/nuxt.svg", name: "Nuxt" },
+  typescript: { path: "assets/typescript.svg", name: "TypeScript" },
+  angular: { path: "assets/angular.svg", name: "Angular" },
+  fastapi: { path: "assets/fastapi.svg", name: "FastAPI" },
+  html: { path: "assets/html.svg", name: "HTML" },
+  css: { path: "assets/css.svg", name: "CSS" },
+  javascript: { path: "assets/javascript.svg", name: "JavaScript" },
+};
+
 @Component({
     selector: "app-projects",
     imports: [NgOptimizedImage],
@@ -24,7 +36,7 @@ export class ProjectsComponent {
       sources: [
         {url: "https://sushi-bunny.onrender.com/", text: "Code"},
       ],
-      techs: [{path: "assets/django.svg", name: "Django"}, {path: "assets/python.svg", name: "Python"}]
+  techs: [TECHS.django, TECHS.python]
     },
     {
       url: "https://github.com/rroblf01/bunnyhopapi",
@@ -35,7 +47,7 @@ export class ProjectsComponent {
       sources: [
         {url: "https://github.com/rroblf01/bunnyhopapi", text: "Framework Code"},
       ],
-      techs: [{path: "assets/python.svg", name: "Python"}]
+  techs: [TECHS.python]
     },
     {
       url: "https://github.com/rroblf01/bunny-estimates",
@@ -46,7 +58,7 @@ export class ProjectsComponent {
       sources: [
         {url: "https://github.com/rroblf01/bunny-estimates", text: "Code"},
       ],
-      techs: [{path: "assets/django.svg", name: "Django"}, {path: "assets/python.svg", name: "Python"}, {path: "assets/nuxt.svg", name: "Nuxt"}, {path: "assets/typescript.svg", name: "TypeScript"}]
+  techs: [TECHS.django, TECHS.python, TECHS.nuxt, TECHS.typescript]
     },
     {
       url: "https://ricardo-password-manager.deno.dev/",
@@ -58,7 +70,7 @@ export class ProjectsComponent {
         {url: "https://github.com/rroblf01/ricardo-password-manager", text: "Front Code"},
         {url: "https://github.com/rroblf01/ricardo-passwords", text: "Back Code"}
       ],
-      techs: [{path: "assets/angular.svg", name: "Angular"}, {path: "assets/typescript.svg", name: "TypeScript"}]
+  techs: [TECHS.angular, TECHS.typescript]
     },
     {
       url: "https://ricardotypefast.deno.dev/",
@@ -68,7 +80,7 @@ export class ProjectsComponent {
       sources: [
         {url: "https://github.com/rroblf01/typefast", text: "Code"},
       ],
-      techs: [{path: "assets/angular.svg", name: "Angular"}, {path: "assets/typescript.svg", name: "TypeScript"}]
+  techs: [TECHS.angular, TECHS.typescript]
     },
     {
       url: "https://ricardo-wordle.vercel.app/",
@@ -78,7 +90,7 @@ export class ProjectsComponent {
       sources: [
         {url: "https://github.com/rroblf01/fast-wordle", text: "Code"},
       ],
-      techs: [{path: "assets/fastapi.svg", name: "FastAPI"}, {path: "assets/python.svg", name: "Python"}, {path: "assets/html.svg", name: "HTML"}, {path: "assets/css.svg", name: "CSS"}, {path: "assets/javascript.svg", name: "JavaScript"}]
+  techs: [TECHS.fastapi, TECHS.python, TECHS.html, TECHS.css, TECHS.javascript]
     },
     {
       url: "https://ricardorobles.deno.dev/",
@@ -88,7 +100,7 @@ export class ProjectsComponent {
       sources: [
         {url: "https://github.com/rroblf01/ricardorobles", text: "Code"},
       ],
-      techs: [{path: "assets/angular.svg", name: "Angular"}, {path: "assets/typescript.svg", name: "TypeScript"}]
+  techs: [TECHS.angular, TECHS.typescript]
     },
     {
       url: "https://ricardo-image-compressor.deno.dev/",
@@ -99,7 +111,7 @@ export class ProjectsComponent {
       sources: [
         {url: "https://github.com/rroblf01/deno-compress", text: "Code"},
       ],
-      techs: [{path: "assets/html.svg", name: "HTML"}, {path: "assets/css.svg", name: "CSS"}, {path: "assets/javascript.svg", name: "JavaScript"}]
+  techs: [TECHS.html, TECHS.css, TECHS.javascript]
     },
     {
       url: "https://ricardo-api-mock.deno.dev/",
@@ -110,7 +122,7 @@ export class ProjectsComponent {
       sources: [
         {url: "https://github.com/rroblf01/deno-mock-api", text: "Code"},
       ],
-      techs: [{path: "assets/html.svg", name: "HTML"}, {path: "assets/css.svg", name: "CSS"}, {path: "assets/javascript.svg", name: "JavaScript"}]
+  techs: [TECHS.html, TECHS.css, TECHS.javascript]
     },
     {
       url: "https://ricardo-jsontointerface.deno.dev/",
@@ -121,7 +133,7 @@ export class ProjectsComponent {
       sources: [
         {url: "https://github.com/rroblf01/deno-jsontointerface", text: "Code"},
       ],
-      techs: [{path: "assets/html.svg", name: "HTML"}, {path: "assets/css.svg", name: "CSS"}, {path: "assets/javascript.svg", name: "JavaScript"}, {path: "assets/typescript.svg", name: "TypeScript"}]
+  techs: [TECHS.html, TECHS.css, TECHS.javascript, TECHS.typescript]
     },
   ];
 }
