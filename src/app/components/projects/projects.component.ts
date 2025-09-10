@@ -46,7 +46,7 @@ export class ProjectsComponent {
       sources: [
         {url: "https://github.com/rroblf01/bunny-estimates", text: "Code"},
       ],
-      techs: [{path: "assets/django.svg", name: "Django"}, {path: "assets/nuxt.svg", name: "Nuxt"}, {path: "assets/typescript.svg", name: "TypeScript"}]
+      techs: [{path: "assets/django.svg", name: "Django"}, {path: "assets/python.svg", name: "Python"}, {path: "assets/nuxt.svg", name: "Nuxt"}, {path: "assets/typescript.svg", name: "TypeScript"}]
     },
     {
       url: "https://ricardo-password-manager.deno.dev/",
@@ -78,7 +78,7 @@ export class ProjectsComponent {
       sources: [
         {url: "https://github.com/rroblf01/fast-wordle", text: "Code"},
       ],
-      techs: [{path: "assets/fastapi.svg", name: "FastAPI"}, {path: "assets/html.svg", name: "HTML"}, {path: "assets/css.svg", name: "CSS"}, {path: "assets/javascript.svg", name: "JavaScript"}]
+      techs: [{path: "assets/fastapi.svg", name: "FastAPI"}, {path: "assets/python.svg", name: "Python"}, {path: "assets/html.svg", name: "HTML"}, {path: "assets/css.svg", name: "CSS"}, {path: "assets/javascript.svg", name: "JavaScript"}]
     },
     {
       url: "https://ricardorobles.deno.dev/",
