@@ -21,6 +21,12 @@ export class TechComponent {
       imgPath: "assets/django.svg",
     },
     {
+      title: "FastAPI",
+      subtitle:
+        "Framework que uso para hacer APIs rápidas y eficientes. Usado profesionalmente desde 2022.",
+      imgPath: "assets/fastapi.svg",
+    },
+    {
       title: "Docker",
       subtitle: "Usado profesionalmente desde 2020.",
       imgPath: "assets/docker.svg",
