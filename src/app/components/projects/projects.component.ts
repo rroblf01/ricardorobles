@@ -28,13 +28,24 @@ export class ProjectsComponent {
     techs: { path: string; name: string }[];
   }[] = [
     {
-      url: "https://github.com/rroblf01/sushi-bunny",
+      url: "https://ricardo-scheduler.fastapicloud.dev/",
+      title: "Bunny Scheduler",
+      description:
+        "Una aplicación que simula un sistema de reservas en un calendario. Permite crear usuarios, crear reservas y proponer intercambios en las reservas.",
+      imgPath: "assets/scheduler.webp",
+      sources: [
+        {url: "https://github.com/rroblf01/bunny-scheduler", text: "Code"},
+      ],
+  techs: [TECHS.django, TECHS.python]
+    },
+    {
+      url: "https://sushi-bunny.onrender.com/",
       title: "Sushi Bunny",
       description:
         "Una simulación de una mesa en un restaurante de sushi, donde puedes reunirte con amigos y contar cuanto sushi has comido.",
       imgPath: "assets/sushi-bunny.webp",
       sources: [
-        {url: "https://sushi-bunny.onrender.com/", text: "Code"},
+        {url: "https://github.com/rroblf01/sushi-bunny", text: "Code"},
       ],
   techs: [TECHS.django, TECHS.python]
     },
