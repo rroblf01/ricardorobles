@@ -11,6 +11,7 @@ const TECHS = {
   html: { path: "assets/html.svg", name: "HTML" },
   css: { path: "assets/css.svg", name: "CSS" },
   javascript: { path: "assets/javascript.svg", name: "JavaScript" },
+  pydantic_ai: { path: "assets/pydantic-ai.svg", name: "Pydantic AI" },
 };
 
 @Component({
@@ -27,6 +28,17 @@ export class ProjectsComponent {
     sources: { url: string; text: string }[];
     techs: { path: string; name: string }[];
   }[] = [
+    {
+      url: "https://ricardo-mcp.fastapicloud.dev/",
+      title: "RabbIAt",
+      description:
+        "Una aplicación que busca crear una prueba de concepto sobre cómo se integran los MCPs y respuesta estructurada con LLMs. Se puede probar una demo con el usuario guest y contraseña test-123",
+      imgPath: "assets/rabbiat.webp",
+      sources: [
+        {url: "https://github.com/rroblf01/rabbiat", text: "Code"},
+      ],
+  techs: [TECHS.django, TECHS.python, TECHS.pydantic_ai]
+    },
     {
       url: "https://ricardo-scheduler.fastapicloud.dev/",
       title: "Bunny Scheduler",
