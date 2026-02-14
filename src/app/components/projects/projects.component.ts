@@ -51,7 +51,7 @@ export class ProjectsComponent {
   techs: [TECHS.django, TECHS.python]
     },
     {
-      url: "https://sushi-bunny.onrender.com/",
+      url: "https://sushi.ricardorobles.es/",
       title: "Sushi Bunny",
       description:
         "Una simulación de una mesa en un restaurante de sushi, donde puedes reunirte con amigos y contar cuanto sushi has comido.",
