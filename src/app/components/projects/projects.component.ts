@@ -29,7 +29,7 @@ export class ProjectsComponent {
     techs: { path: string; name: string }[];
   }[] = [
     {
-      url: "https://ricardo-mcp.fastapicloud.dev/",
+      url: "https://rabbiat.ricardorobles.es/",
       title: "RabbIAt",
       description:
         "Una aplicación que busca crear una prueba de concepto sobre cómo se integran los MCPs y respuesta estructurada con LLMs. Se puede probar una demo con el usuario guest y contraseña test-123",
