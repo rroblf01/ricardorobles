@@ -59,7 +59,7 @@ export class ProjectsComponent {
       sources: [
         {url: "https://github.com/rroblf01/sushi-bunny", text: "Code"},
       ],
-  techs: [TECHS.django, TECHS.python]
+  techs: [TECHS.fastapi, TECHS.python]
     },
     {
       url: "https://github.com/rroblf01/bunnyhopapi",
