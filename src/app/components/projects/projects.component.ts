@@ -30,7 +30,7 @@ export class ProjectsComponent {
     techs: { path: string; name: string }[];
   }[] = [
     {
-      url: "https://gopresss.ricardorobles.es/cms",
+      url: "https://gopress.ricardorobles.es/cms",
       title: "Gopress",
       description:
         "Una aplicación para crear páginas estáticas, inspirada en Wordpress pero con un enfoque en la simplicidad y el rendimiento. Está hecha con Go. Permite crear páginas y gestionar los estilos dependiendo la resolución. Está hecha con Go y el framework Fiber.",
