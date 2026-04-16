@@ -22,6 +22,10 @@ COPY nginx.conf /etc/nginx/conf.d/default.conf
 # Copy built assets from builder stage
 COPY --from=builder /app/dist/ricardo-portafolios/browser /usr/share/nginx/html
 
+# Pre-compress static assets for gzip_static
+RUN find /usr/share/nginx/html -type f \( -name "*.js" -o -name "*.css" -o -name "*.html" -o -name "*.json" -o -name "*.svg" -o -name "*.xml" -o -name "*.txt" \) \
+    -exec gzip -9 -k {} \;
+
 EXPOSE 80
 
 # Healthcheck to ensure the container is running correctly
