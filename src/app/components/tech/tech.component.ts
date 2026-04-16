@@ -1,10 +1,11 @@
-import { Component } from "@angular/core";
+import { ChangeDetectionStrategy, Component } from "@angular/core";
 import { NgOptimizedImage } from '@angular/common'
 
 @Component({
     selector: "app-tech",
     imports: [NgOptimizedImage],
-    templateUrl: "./tech.component.html"
+    templateUrl: "./tech.component.html",
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TechComponent {
   techs: { title: string; subtitle: string; imgPath: string }[] = [

@@ -1,10 +1,11 @@
-import { Component } from "@angular/core";
+import { Component, ChangeDetectionStrategy } from "@angular/core";
 import { TimelineComponent } from "../timeline/timeline.component";
 
 @Component({
     selector: "app-experience",
     imports: [TimelineComponent],
-    templateUrl: "./experience.component.html"
+    templateUrl: "./experience.component.html",
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ExperienceComponent {
   studiesTitle: string = "Estudios";

@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { ChangeDetectionStrategy, Component } from "@angular/core";
 import { NgOptimizedImage } from '@angular/common'
 
 const TECHS = {
@@ -18,7 +18,8 @@ const TECHS = {
 @Component({
     selector: "app-projects",
     imports: [NgOptimizedImage],
-    templateUrl: "./projects.component.html"
+    templateUrl: "./projects.component.html",
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ProjectsComponent {
   projects: {

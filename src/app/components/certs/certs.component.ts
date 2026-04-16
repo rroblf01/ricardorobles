@@ -1,10 +1,11 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { NgOptimizedImage } from '@angular/common'
 
 @Component({
     selector: 'app-certs',
     imports: [NgOptimizedImage],
-    templateUrl: './certs.component.html'
+    templateUrl: './certs.component.html',
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CertsComponent {
   certs: {

@@ -1,40 +1,48 @@
-import { Component } from "@angular/core";
-import { NgOptimizedImage } from '@angular/common'
+import { Component, OnInit, OnDestroy, signal, ChangeDetectionStrategy } from "@angular/core";
+import { NgOptimizedImage } from '@angular/common';
 
 @Component({
     selector: "app-about",
     imports: [NgOptimizedImage],
-    templateUrl: "./about.component.html"
+    templateUrl: "./about.component.html",
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class AboutComponent {
-  years: number = 4;
-  months: number = 0;
-  days: number = 0;
-  hours: number = 0;
-  minutes: number = 0;
-  seconds: number = 0;
+export class AboutComponent implements OnInit, OnDestroy {
+  years = signal(0);
+  months = signal(0);
+  days = signal(0);
+  hours = signal(0);
+  minutes = signal(0);
+  seconds = signal(0);
 
-  constructor() {
+  private timerInterval: any;
+
+  ngOnInit() {
     this.calculateTime();
-    setInterval(() => this.calculateTime(), 1000);
+    this.timerInterval = setInterval(() => this.calculateTime(), 1000);
+  }
+
+  ngOnDestroy() {
+    if (this.timerInterval) {
+      clearInterval(this.timerInterval);
+    }
   }
 
   calculateTime() {
     const startDate = new Date("2020-02-01");
     const currentDate = new Date();
     const diff = currentDate.getTime() - startDate.getTime();
+    
     const diffInSeconds = diff / 1000;
     const diffInMinutes = diffInSeconds / 60;
     const diffInHours = diffInMinutes / 60;
     const diffInDays = diffInHours / 24;
-    const diffInMonths = diffInDays / 30;
-    const diffInYears = diffInMonths / 12;
-
-    this.years = Math.floor(diffInYears);
-    this.months = Math.floor(diffInMonths % 12);
-    this.days = Math.floor(diffInDays % 30);
-    this.hours = Math.floor(diffInHours % 24);
-    this.minutes = Math.floor(diffInMinutes % 60);
-    this.seconds = Math.floor(diffInSeconds % 60);
+    
+    this.years.set(Math.floor(diffInDays / 365.25));
+    this.months.set(Math.floor((diffInDays % 365.25) / 30.44));
+    this.days.set(Math.floor((diffInDays % 365.25) % 30.44));
+    this.hours.set(Math.floor(diffInHours % 24));
+    this.minutes.set(Math.floor(diffInMinutes % 60));
+    this.seconds.set(Math.floor(diffInSeconds % 60));
   }
 }
