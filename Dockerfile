@@ -28,8 +28,5 @@ RUN find /usr/share/nginx/html -type f \( -name "*.js" -o -name "*.css" -o -name
 
 EXPOSE 80
 
-# Healthcheck to ensure the container is running correctly
-HEALTHCHECK --interval=30s --timeout=3s \
-  CMD wget --quiet --tries=1 --spider http://localhost:80/ || exit 1
 
 CMD ["nginx", "-g", "daemon off;"]
