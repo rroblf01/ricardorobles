@@ -31,6 +31,17 @@ export class ProjectsComponent {
     techs: { path: string; name: string }[];
   }[] = [
     {
+      url: "https://rroblf01.github.io/d-orm/",
+      title: "djanorm",
+      description:
+        "Un ORM al estilo Django para Python con async de primera clase, schemas de Pydantic listos para FastAPI y un CLI dorm ligero. Sin dependencia del runtime de Django.",
+      imgPath: "assets/djanorm.webp",
+      sources: [
+        {url: "https://github.com/rroblf01/d-orm", text: "Code"},
+      ],
+  techs: [TECHS.python]
+    },
+    {
       url: "https://gopress.ricardorobles.es/cms",
       title: "Gopress",
       description:
