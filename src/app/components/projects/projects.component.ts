@@ -2,6 +2,7 @@ import { ChangeDetectionStrategy, Component } from "@angular/core";
 import { NgOptimizedImage } from '@angular/common'
 
 const TECHS = {
+  zig: { path: "assets/zig.svg", name: "Zig" },
   django: { path: "assets/django.svg", name: "Django" },
   python: { path: "assets/python.svg", name: "Python" },
   nuxt: { path: "assets/nuxt.svg", name: "Nuxt" },
@@ -30,6 +31,17 @@ export class ProjectsComponent {
     sources: { url: string; text: string }[];
     techs: { path: string; name: string }[];
   }[] = [
+    {
+      url: "https://github.com/rroblf01/saltare",
+      title: "Saltare",
+      description:
+        "Un Servidor HTTP ASGI para python escrito desde cero en Zig. Tiene un rendimiento excelente y un consumo de RAM muy bajo.",
+      imgPath: "assets/saltare.webp",
+      sources: [
+        {url: "https://github.com/rroblf01/saltare", text: "Code"},
+      ],
+      techs: [TECHS.python, TECHS.zig]
+    },
     {
       url: "https://rroblf01.github.io/d-orm/",
       title: "djanorm",
