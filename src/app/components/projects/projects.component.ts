@@ -32,6 +32,17 @@ export class ProjectsComponent {
     techs: { path: string; name: string }[];
   }[] = [
     {
+      url: "https://jirrabit.ricardorobles.es/",
+      title: "Jirrabit",
+      description:
+        "Es una aplicación inspirada en Jira pero con un enfoque en la simplicidad y el rendimiento. Puedes probar la demo con el usuario alice_pm y contraseña demopass",
+      imgPath: "assets/jirrabit.webp",
+      sources: [
+        {url: "https://github.com/rroblf01/jirrabit", text: "Code"},
+      ],
+      techs: [TECHS.django, TECHS.python, TECHS.javascript, TECHS.html, TECHS.css]
+    },
+    {
       url: "https://github.com/rroblf01/saltare",
       title: "Saltare",
       description:
@@ -99,7 +110,7 @@ export class ProjectsComponent {
     },
     {
       url: "https://github.com/rroblf01/bunnyhopapi",
-      title: "Bunny Estimates",
+      title: "BunnyHopAPI",
       description:
         "Framework http escrito en python desde cero. Swagger automático, CORS, validación de tipos y excelente rendimiento.",
       imgPath: "assets/bunnyhopapi.webp",
