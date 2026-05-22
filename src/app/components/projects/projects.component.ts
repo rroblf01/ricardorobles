@@ -14,6 +14,7 @@ const TECHS = {
   css: { path: "assets/css.svg", name: "CSS" },
   javascript: { path: "assets/javascript.svg", name: "JavaScript" },
   pydantic_ai: { path: "assets/pydantic-ai.svg", name: "Pydantic AI" },
+  rust: { path: "assets/rust.svg", name: "Rust" },
 };
 
 @Component({
@@ -31,6 +32,17 @@ export class ProjectsComponent {
     sources: { url: string; text: string }[];
     techs: { path: string; name: string }[];
   }[] = [
+    {
+      url: "https://github.com/rroblf01/whitesnout",
+      title: "Whitesnout",
+      description:
+        "Es un servidor ASGI de ficheros estáticos escrito en Rust y Python. Es muy rápido y ligero, ideal para servir archivos estáticos en producción.",
+      imgPath: "assets/whitesnout.webp",
+      sources: [
+        {url: "https://github.com/rroblf01/whitesnout", text: "Code"},
+      ],
+      techs: [TECHS.python, TECHS.rust]
+    },
     {
       url: "https://jirrabit.ricardorobles.es/",
       title: "Jirrabit",
