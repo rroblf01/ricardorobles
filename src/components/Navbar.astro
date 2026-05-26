@@ -9,29 +9,54 @@ const routes = [
 ];
 ---
 
-<nav class="flex sm:justify-center items-center flex-col sm:flex-row sm:items-baseline sm:space-x-4 py-4">
-  {
-    routes.map((route) => (
-      <a
-        href={route.path}
-        class="rounded-lg px-3 py-2 text-[#334155] dark:text-gray-300 font-medium hover:bg-[#F0BF9B] dark:hover:bg-amber-600 hover:text-[#0f172a] dark:hover:text-white border-[#F0BF9A] dark:border-amber-700 border-b-1 transition-colors"
-      >
-        {route.label}
-      </a>
-    ))
-  }
-  <div class="flex items-center space-x-2 mt-2 sm:mt-0">
-    <button id="theme-toggle" class="rounded-lg px-3 py-2 text-[#334155] dark:text-gray-300 font-medium hover:bg-[#F0BF9B] dark:hover:bg-amber-600 hover:text-[#0f172a] dark:hover:text-white transition-colors" aria-label="Cambiar modo oscuro">
-      <svg id="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5 hidden dark:inline"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-      <svg id="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5 dark:hidden"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+<nav class="flex items-center justify-between min-[790px]:justify-center py-4 relative">
+  <button id="menu-toggle" class="hidden max-[790px]:flex rounded-lg px-3 py-2 text-[#334155] dark:text-gray-300 hover:bg-[#F0BF9B] dark:hover:bg-amber-600 transition-colors" aria-label="Menú">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-6 h-6"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+  </button>
+
+  <div id="menu-items" class="hidden min-[790px]:flex flex-col min-[790px]:flex-row min-[790px]:items-baseline min-[790px]:space-x-4 items-center absolute min-[790px]:static top-full left-1/2 -translate-x-1/2 min-[790px]:translate-x-0 w-auto bg-[#E6E7C6] dark:bg-gray-900 shadow-md min-[790px]:shadow-none rounded-b-xl min-[790px]:rounded-none pb-4 min-[790px]:pb-0 z-50 min-w-[200px]">
+    {
+      routes.map((route) => (
+        <a
+          href={route.path}
+          class="rounded-lg px-3 py-2 text-[#334155] dark:text-gray-300 font-medium hover:bg-[#F0BF9B] dark:hover:bg-amber-600 hover:text-[#0f172a] dark:hover:text-white border-[#F0BF9A] dark:border-amber-700 border-b-1 transition-colors"
+        >
+          {route.label}
+        </a>
+      ))
+    }
+    <button id="theme-toggle-desktop" class="max-[790px]:hidden min-[790px]:flex rounded-lg px-3 py-2 text-[#334155] dark:text-gray-300 font-medium hover:bg-[#F0BF9B] dark:hover:bg-amber-600 hover:text-[#0f172a] dark:hover:text-white transition-colors" aria-label="Cambiar modo oscuro">
+      <svg id="sun-icon-desktop" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5 hidden dark:inline"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      <svg id="moon-icon-desktop" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5 dark:hidden"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
     </button>
   </div>
+
+  <button id="theme-toggle" class="hidden max-[790px]:flex rounded-lg px-3 py-2 text-[#334155] dark:text-gray-300 font-medium hover:bg-[#F0BF9B] dark:hover:bg-amber-600 hover:text-[#0f172a] dark:hover:text-white transition-colors" aria-label="Cambiar modo oscuro">
+    <svg id="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5 hidden dark:inline"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+    <svg id="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5 dark:hidden"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+  </button>
 </nav>
 
 <script>
-  document.getElementById("theme-toggle")?.addEventListener("click", () => {
+  const toggle = document.getElementById("menu-toggle");
+  const menu = document.getElementById("menu-items");
+  toggle?.addEventListener("click", () => {
+    menu?.classList.toggle("hidden");
+  });
+
+  document.addEventListener("click", (e) => {
+    if (!e.target.closest("nav") && !menu?.classList.contains("hidden")) {
+      menu?.classList.add("hidden");
+    }
+  });
+
+  function handleThemeToggle() {
     const html = document.documentElement;
     const isDark = html.classList.toggle("dark");
     localStorage.setItem("theme", isDark ? "dark" : "light");
-  });
+    document.documentElement.style.backgroundColor = isDark ? "#111827" : "#E6E7C6";
+  }
+
+  document.getElementById("theme-toggle")?.addEventListener("click", handleThemeToggle);
+  document.getElementById("theme-toggle-desktop")?.addEventListener("click", handleThemeToggle);
 </script>

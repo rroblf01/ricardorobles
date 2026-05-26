@@ -15,7 +15,7 @@ const {
 ---
 
 <!doctype html>
-<html lang="es">
+<html lang="es" style="background-color: #E6E7C6;">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -27,8 +27,10 @@ const {
       (function() {
         const stored = localStorage.getItem("theme");
         const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-        if (stored === "dark" || (!stored && prefersDark)) {
+        const isDark = stored === "dark" || (!stored && prefersDark);
+        if (isDark) {
           document.documentElement.classList.add("dark");
+          document.documentElement.style.backgroundColor = "#111827";
         }
       })();
     </script>
