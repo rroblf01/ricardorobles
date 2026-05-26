@@ -19,6 +19,19 @@ const {
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      html { background-color: #E6E7C6; }
+      html.dark { background-color: #111827; }
+    </style>
+    <script is:inline>
+      (function() {
+        const stored = localStorage.getItem("theme");
+        const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        if (stored === "dark" || (!stored && prefersDark)) {
+          document.documentElement.classList.add("dark");
+        }
+      })();
+    </script>
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href="https://ricardorobles.es/" />
@@ -62,15 +75,6 @@ const {
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
       gtag('config', 'G-31TBY36R16');
-    </script>
-    <script>
-      (function() {
-        const stored = localStorage.getItem("theme");
-        const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-        if (stored === "dark" || (!stored && prefersDark)) {
-          document.documentElement.classList.add("dark");
-        }
-      })();
     </script>
   </head>
   <body>
