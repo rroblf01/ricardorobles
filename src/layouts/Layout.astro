@@ -1,0 +1,43 @@
+---
+import "../styles/global.css";
+
+export interface Props {
+  title?: string;
+  description?: string;
+  ogImage?: string;
+}
+
+const {
+  title = "Ricardo Robles — FullStack Developer",
+  description = "Portafolio de Ricardo Robles. Programador backend con 5+ años de experiencia en Python, Django, Docker y TypeScript.",
+  ogImage = "/assets/meta-portafolios.jpeg",
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="preconnect" href="https://region1.google-analytics.com" />
+    <link rel="preconnect" href="https://www.googletagmanager.com" />
+    <link rel="preload" href="/assets/ricardo.webp" as="image" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-31TBY36R16"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-31TBY36R16');
+    </script>
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

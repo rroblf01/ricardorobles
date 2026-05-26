@@ -1,0 +1,24 @@
+---
+import Timeline from "./Timeline.astro";
+import { experience, studies } from "../data/experience";
+---
+
+<div
+  id="experience"
+  class="flex items-start justify-center flex-col text-center sm:flex-row mt-10 sm:space-x-10 space-y-10 sm:space-y-0"
+>
+  <Timeline
+    title="Experiencia"
+    elements={experience.map((e) => ({
+      title: `${e.place}, ${e.title}`,
+      subtitle: `${e.start} - ${e.end}`,
+    }))}
+  />
+  <Timeline
+    title="Estudios"
+    elements={studies.map((s) => ({
+      title: `${s.title}, ${s.status}`,
+      subtitle: s.place,
+    }))}
+  />
+</div>
