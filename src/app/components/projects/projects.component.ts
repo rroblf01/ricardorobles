@@ -33,6 +33,17 @@ export class ProjectsComponent {
     techs: { path: string; name: string }[];
   }[] = [
     {
+      url: "https://rroblf01.github.io/lapinq/",
+      title: "lapinq",
+      description:
+        "Una cola de tareas ligera con backend PostgreSQL — reemplazando Celery + RabbitMQ con un solo contenedor.",
+      imgPath: "assets/lapinq.webp",
+      sources: [
+        {url: "https://github.com/rroblf01/lapinq", text: "Code"},
+      ],
+      techs: [TECHS.python, TECHS.rust]
+    },
+    {
       url: "https://github.com/rroblf01/whitesnout",
       title: "Whitesnout",
       description:
