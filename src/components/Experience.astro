@@ -3,9 +3,9 @@ import Timeline from "./Timeline.astro";
 import { experience, studies } from "../data/experience";
 ---
 
-<div
+<section
   id="experience"
-  class="flex items-start justify-center flex-col text-center sm:flex-row mt-10 sm:space-x-10 space-y-10 sm:space-y-0"
+  class="flex items-start justify-center flex-col text-center sm:flex-row mt-10 sm:space-x-10 space-y-10 sm:space-y-0 fade-in"
 >
   <Timeline
     title="Experiencia"
@@ -21,4 +21,4 @@ import { experience, studies } from "../data/experience";
       subtitle: s.place,
     }))}
   />
-</div>
+</section>

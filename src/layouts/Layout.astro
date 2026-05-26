@@ -10,7 +10,7 @@ export interface Props {
 const {
   title = "Ricardo Robles — FullStack Developer",
   description = "Portafolio de Ricardo Robles. Programador backend con 5+ años de experiencia en Python, Django, Docker y TypeScript.",
-  ogImage = "/assets/meta-portafolios.jpeg",
+  ogImage = "https://ricardorobles.es/assets/meta-portafolios.jpeg",
 } = Astro.props;
 ---
 
@@ -21,9 +21,36 @@ const {
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
     <meta name="description" content={description} />
+    <link rel="canonical" href="https://ricardorobles.es/" />
+
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={ogImage} />
+    <meta property="og:url" content="https://ricardorobles.es/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="es_ES" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Ricardo Robles",
+        "jobTitle": "FullStack Developer",
+        "url": "https://ricardorobles.es",
+        "sameAs": [
+          "https://linkedin.com/in/ricardoroblesfernandez/",
+          "https://github.com/rroblf01"
+        ],
+        "knowsAbout": ["Python", "Django", "FastAPI", "Docker", "PostgreSQL", "TypeScript", "JavaScript", "Git"],
+        "description": "Programador FullStack con fuerte predilección al Backend. Ingeniero Informático con experiencia en Python, Django, Docker y TypeScript."
+      }
+    </script>
+
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <link rel="preconnect" href="https://region1.google-analytics.com" />
     <link rel="preconnect" href="https://www.googletagmanager.com" />
@@ -35,6 +62,15 @@ const {
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
       gtag('config', 'G-31TBY36R16');
+    </script>
+    <script>
+      (function() {
+        const stored = localStorage.getItem("theme");
+        const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        if (stored === "dark" || (!stored && prefersDark)) {
+          document.documentElement.classList.add("dark");
+        }
+      })();
     </script>
   </head>
   <body>

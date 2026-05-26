@@ -2,12 +2,12 @@
 import { projects } from "../data/projects";
 ---
 
-<div id="projects" class="text-center">
+<section id="projects" class="text-center fade-in">
   <h3 class="text-2xl mt-10">Proyectos que he desarrollado ultimamente.</h3>
   <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-10 max-w-screen-2xl mx-auto px-4">
     {projects.map((project, i) => (
-      <div class="relative flex flex-row rounded-xl bg-clip-border text-gray-700 shadow-md min-h-[300px] h-full">
-          <div class="relative m-0 w-2/5 shrink-0 rounded-xl rounded-r-none bg-white bg-clip-border text-gray-700">
+      <div class="relative flex flex-row rounded-xl bg-clip-border text-gray-700 dark:text-gray-200 shadow-md min-h-[300px] h-full bg-white dark:bg-gray-800">
+          <div class="relative m-0 w-2/5 shrink-0 rounded-xl rounded-r-none bg-white dark:bg-gray-700 bg-clip-border text-gray-700">
             <a href={project.url} target="_blank" class="block h-full w-full">
               <img
                 src={project.imgPath}
@@ -20,21 +20,21 @@ import { projects } from "../data/projects";
               />
             </a>
           </div>
-          <div class="p-6 flex flex-col">
-            <h4 class="mb-4 block font-sans text-base font-semibold uppercase leading-relaxed tracking-normal text-[#8F0F37] antialiased">
-              {project.title}
+          <div class="p-6 flex flex-col text-left">
+            <h4 class="mb-4 block font-sans text-base font-semibold uppercase leading-relaxed tracking-normal text-[#8F0F37] dark:text-amber-400 antialiased">
+              <a href={project.url} target="_blank">{project.title}</a>
             </h4>
-            <p class="mb-2 block font-sans text-base font-normal leading-relaxed text-gray-700 antialiased flex-grow">
+            <p class="mb-2 block font-sans text-base font-normal leading-relaxed text-gray-700 dark:text-gray-300 antialiased flex-grow">
               {project.description}
             </p>
-            <a href={project.url} target="_blank" class="text-[#4A4A4A] underline">
+            <a href={project.url} target="_blank" class="text-[#4A4A4A] dark:text-gray-400 underline">
               <p>{project.url}</p>
             </a>
             <div class="text-xs mt-2">
               {project.sources.map((source) => (
                 <div>
                   <p>{source.text}</p>
-                  <a href={source.url} target="_blank" class="text-[#4A4A4A] underline">
+                  <a href={source.url} target="_blank" class="text-[#4A4A4A] dark:text-gray-400 underline">
                     <p>{source.url}</p>
                   </a>
                 </div>
@@ -49,4 +49,4 @@ import { projects } from "../data/projects";
       </div>
     ))}
   </div>
-</div>
+</section>
