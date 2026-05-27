@@ -8,7 +8,7 @@ export interface Props {
 }
 
 const {
-  title = "Ricardo Robles — FullStack Developer",
+  title = "Ricardo Robles — Programador Backend | Python, Django & TypeScript",
   description = "Portafolio de Ricardo Robles. Programador backend con 5+ años de experiencia en Python, Django, Docker y TypeScript.",
   ogImage = "https://ricardorobles.es/assets/meta-portafolios.jpg",
 } = Astro.props;
@@ -36,6 +36,8 @@ const {
     </script>
     <title>{title}</title>
     <meta name="description" content={description} />
+    <meta name="author" content="Ricardo Robles Fernández" />
+    <meta name="theme-color" content="#E6E7C6" />
     <link rel="canonical" href="https://ricardorobles.es/" />
 
     <meta property="og:title" content={title} />
@@ -55,14 +57,14 @@ const {
         "@context": "https://schema.org",
         "@type": "Person",
         "name": "Ricardo Robles",
-        "jobTitle": "FullStack Developer",
+        "jobTitle": "Programador Backend",
         "url": "https://ricardorobles.es",
         "sameAs": [
           "https://linkedin.com/in/ricardoroblesfernandez/",
           "https://github.com/rroblf01"
         ],
         "knowsAbout": ["Python", "Django", "FastAPI", "Docker", "PostgreSQL", "TypeScript", "JavaScript", "Git"],
-        "description": "Programador FullStack con fuerte predilección al Backend. Ingeniero Informático con experiencia en Python, Django, Docker y TypeScript."
+        "description": "Programador Backend con 5+ años de experiencia en Python, Django, Docker y TypeScript. Ingeniero Informático apasionado por la tecnología."
       }
     </script>
 

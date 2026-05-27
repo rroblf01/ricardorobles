@@ -184,7 +184,7 @@ export const projects: Project[] = [
     url: "https://ricardorobles.es/",
     title: "Portafolio",
     description:
-      "Este mismo portafolio, para ello he usado Angular.",
+      "Este mismo portafolio, para ello he usado Astro.",
     imgPath: "/assets/portafolio.webp",
     sources: [
       {url: "https://github.com/rroblf01/ricardorobles", text: "Code"},

@@ -1,2 +1,2 @@
 User-agent: *
-Sitemap: https://ricardorobles.es/sitemap.xml
+Sitemap: https://ricardorobles.es/sitemap-index.xml
