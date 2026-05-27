@@ -12,6 +12,8 @@ const {
   description = "Portafolio de Ricardo Robles. Programador backend con 6+ años de experiencia en Python, Django, Docker y TypeScript.",
   ogImage = "https://ricardorobles.es/assets/meta-portafolios.jpg",
 } = Astro.props;
+
+const url = new URL(Astro.url.pathname, "https://ricardorobles.es");
 ---
 
 <!doctype html>
@@ -38,12 +40,12 @@ const {
     <meta name="description" content={description} />
     <meta name="author" content="Ricardo Robles Fernández" />
     <meta name="theme-color" content="#E6E7C6" />
-    <link rel="canonical" href="https://ricardorobles.es/" />
+    <link rel="canonical" href={url.href} />
 
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={ogImage} />
-    <meta property="og:url" content="https://ricardorobles.es/" />
+    <meta property="og:url" content={url.href} />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="es_ES" />
 
@@ -53,7 +55,7 @@ const {
     <meta name="twitter:image" content={ogImage} />
 
     <script type="application/ld+json">
-      {
+      [{
         "@context": "https://schema.org",
         "@type": "Person",
         "name": "Ricardo Robles",
@@ -65,7 +67,13 @@ const {
         ],
         "knowsAbout": ["Python", "Django", "FastAPI", "Docker", "PostgreSQL", "TypeScript", "JavaScript", "Git"],
         "description": "Programador Backend con 6+ años de experiencia en Python, Django, Docker y TypeScript. Ingeniero Informático apasionado por la tecnología."
-      }
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Ricardo Robles — Programador Backend",
+        "url": "https://ricardorobles.es"
+      }]
     </script>
 
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
