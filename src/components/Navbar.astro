@@ -10,17 +10,21 @@ const routes = [
 ];
 ---
 
-<nav class="flex items-center justify-between min-[790px]:justify-center py-4 relative">
-  <button id="menu-toggle" class="hidden max-[790px]:flex rounded-lg px-3 py-2 text-[#334155] dark:text-gray-300 hover:bg-[#F0BF9B] dark:hover:bg-amber-600 transition-colors" aria-label="Menú">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-6 h-6"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+<nav class="flex items-center justify-between min-[790px]:justify-center py-4 fixed top-0 left-0 right-0 z-40 bg-[#E6E7C6] dark:bg-gray-900">
+  <button id="menu-toggle" class="hidden max-[790px]:flex flex-col justify-center items-center w-10 h-10 rounded-lg text-[#334155] dark:text-gray-300 hover:bg-[#F0BF9B] dark:hover:bg-amber-600 transition-colors" aria-label="Menú">
+    <span id="hamb-line1" class="block w-5 h-0.5 bg-current transition-all duration-300 origin-center"></span>
+    <span id="hamb-line2" class="block w-5 h-0.5 bg-current my-1 transition-all duration-300"></span>
+    <span id="hamb-line3" class="block w-5 h-0.5 bg-current transition-all duration-300 origin-center"></span>
   </button>
 
-  <div id="menu-items" class="hidden min-[790px]:flex flex-col min-[790px]:flex-row min-[790px]:items-baseline min-[790px]:space-x-4 items-center absolute min-[790px]:static top-full left-1/2 -translate-x-1/2 min-[790px]:translate-x-0 w-auto bg-[#E6E7C6] dark:bg-gray-900 shadow-md min-[790px]:shadow-none rounded-b-xl min-[790px]:rounded-none pb-4 min-[790px]:pb-0 z-50 min-w-[200px]">
+  <div id="backdrop" class="hidden max-[790px]:block fixed inset-0 bg-black/30 z-40 opacity-0 transition-opacity duration-300 pointer-events-none"></div>
+
+  <div id="menu-items" class="max-[790px]:fixed max-[790px]:left-0 max-[790px]:right-0 max-[790px]:top-[60px] max-[790px]:bg-[#E6E7C6] max-[790px]:dark:bg-gray-900 max-[790px]:shadow-xl max-[790px]:rounded-b-2xl max-[790px]:overflow-hidden max-[790px]:max-h-0 max-[790px]:transition-all max-[790px]:duration-300 max-[790px]:ease-in-out flex flex-col min-[790px]:flex-row min-[790px]:items-baseline min-[790px]:space-x-4 items-center z-50">
     {
       routes.map((route) => (
         <a
           href={route.path}
-          class="rounded-lg px-3 py-2 text-[#334155] dark:text-gray-300 font-medium hover:bg-[#F0BF9B] dark:hover:bg-amber-600 hover:text-[#0f172a] dark:hover:text-white border-[#F0BF9A] dark:border-amber-700 border-b-1 transition-colors"
+          class="rounded-lg px-3 py-2 text-[#334155] dark:text-gray-300 font-medium hover:bg-[#F0BF9B] dark:hover:bg-amber-600 hover:text-[#0f172a] dark:hover:text-white transition-colors"
         >
           {route.label}
         </a>
@@ -41,14 +45,51 @@ const routes = [
 <script>
   const toggle = document.getElementById("menu-toggle");
   const menu = document.getElementById("menu-items");
+  const backdrop = document.getElementById("backdrop");
+  const line1 = document.getElementById("hamb-line1");
+  const line2 = document.getElementById("hamb-line2");
+  const line3 = document.getElementById("hamb-line3");
+
+  let open = false;
+
+  function openMenu() {
+    open = true;
+    menu?.classList.remove("max-[790px]:max-h-0");
+    menu?.classList.add("max-[790px]:max-h-96", "max-[790px]:pb-4");
+    backdrop?.classList.remove("opacity-0", "pointer-events-none");
+    backdrop?.classList.add("opacity-100");
+    line1?.classList.add("rotate-45", "translate-y-[6px]");
+    line2?.classList.add("opacity-0", "scale-0");
+    line3?.classList.add("-rotate-45", "-translate-y-[6px]");
+  }
+
+  function closeMenu() {
+    open = false;
+    menu?.classList.remove("max-[790px]:max-h-96", "max-[790px]:pb-4");
+    menu?.classList.add("max-[790px]:max-h-0");
+    backdrop?.classList.remove("opacity-100");
+    backdrop?.classList.add("opacity-0", "pointer-events-none");
+    line1?.classList.remove("rotate-45", "translate-y-[6px]");
+    line2?.classList.remove("opacity-0", "scale-0");
+    line3?.classList.remove("-rotate-45", "-translate-y-[6px]");
+  }
+
   toggle?.addEventListener("click", () => {
-    menu?.classList.toggle("hidden");
+    if (open) {
+      closeMenu();
+    } else {
+      openMenu();
+    }
   });
 
   document.addEventListener("click", (e) => {
-    if (!e.target.closest("nav") && !menu?.classList.contains("hidden")) {
-      menu?.classList.add("hidden");
+    if (!e.target.closest("nav") && open) {
+      closeMenu();
     }
+  });
+
+  document.querySelectorAll("#menu-items a").forEach(a => {
+    a.addEventListener("click", closeMenu);
   });
 
   function handleThemeToggle() {
