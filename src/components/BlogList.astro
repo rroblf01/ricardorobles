@@ -126,4 +126,21 @@ const { posts, allTags, currentPage, totalPages } = Astro.props;
   }
 </style>
 
+<style is:global>
+  [data-tag-btn].tag-highlighted {
+    background-color: #014D85 !important;
+    color: white !important;
+  }
+  [data-tag-btn].tag-highlighted:hover {
+    background-color: #013a66 !important;
+  }
+  html.dark [data-tag-btn].tag-highlighted {
+    background-color: #014D85 !important;
+    color: white !important;
+  }
+  html.dark [data-tag-btn].tag-highlighted:hover {
+    background-color: #013a66 !important;
+  }
+</style>
+
 

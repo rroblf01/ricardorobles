@@ -40,7 +40,7 @@ const description = post.description;
       <div class="flex flex-wrap gap-2 mt-8 pt-6 border-t border-gray-300 dark:border-gray-700">
         {post.tags.map(tag => (
           <a
-            href={`/blog/?tag=${encodeURIComponent(tag)}`}
+            href={`/blog/?tags=${encodeURIComponent(tag)}`}
             class="px-2 py-1 text-xs rounded bg-[#E6E7C6] dark:bg-gray-700 hover:bg-[#F0BF9B] dark:hover:bg-amber-600 transition-colors"
           >
             {tag}

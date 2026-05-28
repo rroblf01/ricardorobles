@@ -76,10 +76,12 @@ const allPostsData = blogPosts.map(p => ({
     });
   }
 
-  function createCardHTML(post) {
-    const tagsHTML = post.tags.map(t =>
-      `<button data-tag-btn="${t.replace(/"/g, "&quot;")}" class="px-2 py-1 text-xs rounded bg-[#E6E7C6] dark:bg-gray-700 hover:bg-[#F0BF9B] dark:hover:bg-amber-600 transition-colors cursor-pointer">${t}</button>`
-    ).join("");
+  function createCardHTML(post, selectedTags = []) {
+    const tagsHTML = post.tags.map(t => {
+      const isSelected = selectedTags.includes(t);
+      const cls = 'px-2 py-1 text-xs rounded transition-colors cursor-pointer' + (isSelected ? ' tag-highlighted' : ' bg-[#E6E7C6] dark:bg-gray-700 hover:bg-[#F0BF9B] dark:hover:bg-amber-600');
+      return `<button data-tag-btn="${t.replace(/"/g, "&quot;")}" class="${cls}">${t}</button>`;
+    }).join("");
 
     return `<article data-slug="${post.slug}" data-title="${post.title.toLowerCase()}" data-tags="${post.tags.join(",")}" class="post-card post-card-dynamic p-6 rounded-xl bg-[#F5F0E0] dark:bg-gray-800 shadow-md">
       <div class="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400 mb-2">
@@ -118,11 +120,12 @@ const allPostsData = blogPosts.map(p => ({
     document.querySelectorAll(".post-card-dynamic").forEach(el => el.remove());
 
     const filtered = getFiltered();
+    const selectedTags = getSelectedTags();
     updatePostCount(filtered.length);
     const fragment = document.createDocumentFragment();
     filtered.forEach(post => {
       const div = document.createElement("div");
-      div.innerHTML = createCardHTML(post);
+      div.innerHTML = createCardHTML(post, selectedTags);
       fragment.appendChild(div.firstElementChild);
     });
     postsGrid.appendChild(fragment);
@@ -150,8 +153,8 @@ const allPostsData = blogPosts.map(p => ({
     if (!btn) return;
     const isActive = btn.dataset.active === "true";
     btn.dataset.active = isActive ? "false" : "true";
-    reattachCardTagListeners();
     render();
+    reattachCardTagListeners();
     updateURL();
   }
 
@@ -192,7 +195,7 @@ const allPostsData = blogPosts.map(p => ({
   (function initFromURL() {
     const params = new URLSearchParams(location.search);
     const q = params.get("q") || "";
-    const tagsParam = params.get("tags") || "";
+    const tagsParam = params.get("tags") || params.get("tag") || "";
     if (searchInput) searchInput.value = q;
     if (tagsParam) {
       const tags = tagsParam.split(",");
@@ -202,8 +205,8 @@ const allPostsData = blogPosts.map(p => ({
       });
     }
     if (q || tagsParam) {
-      reattachCardTagListeners();
       render();
+      reattachCardTagListeners();
     }
   })();
 </script>
