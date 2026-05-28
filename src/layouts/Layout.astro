@@ -8,8 +8,8 @@ export interface Props {
 }
 
 const {
-  title = "Ricardo Robles — Programador Backend | Python, Django & TypeScript",
-  description = "Portafolio de Ricardo Robles. Programador backend con 6+ años de experiencia en Python, Django, Docker y TypeScript.",
+  title = "Ricardo Robles - Programador Backend Python | León, España",
+  description = "Ricardo Robles, Programador Backend en León, España. Especializado en Python, Django, FastAPI y TypeScript. 6+ años de experiencia como Ingeniero Informático.",
   ogImage = "https://ricardorobles.es/assets/meta-portafolios.jpg",
 } = Astro.props;
 
@@ -21,33 +21,41 @@ const url = new URL(Astro.url.pathname, "https://ricardorobles.es");
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <style>
-      html { background-color: #E6E7C6; }
-      html.dark { background-color: #111827; }
-    </style>
     <script is:inline>
       (function() {
-        const stored = localStorage.getItem("theme");
-        const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-        const isDark = stored === "dark" || (!stored && prefersDark);
+        var stored = localStorage.getItem("theme");
+        var prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        var isDark = stored === "dark" || (!stored && prefersDark);
         if (isDark) {
           document.documentElement.classList.add("dark");
           document.documentElement.style.backgroundColor = "#111827";
         }
       })();
     </script>
+    <style>
+      html { background-color: #E6E7C6; }
+      html.dark { background-color: #111827; }
+    </style>
     <title>{title}</title>
     <meta name="description" content={description} />
+    <meta name="robots" content="index, follow" />
     <meta name="author" content="Ricardo Robles Fernández" />
     <meta name="theme-color" content="#E6E7C6" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="Ricardo Robles" />
+    <link rel="manifest" href="/manifest.json" />
     <link rel="canonical" href={url.href} />
 
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
     <meta property="og:url" content={url.href} />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="es_ES" />
+    <meta property="og:site_name" content="Ricardo Robles - Programador Backend" />
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
@@ -55,31 +63,140 @@ const url = new URL(Astro.url.pathname, "https://ricardorobles.es");
     <meta name="twitter:image" content={ogImage} />
 
     <script type="application/ld+json">
-      [{
+      {
         "@context": "https://schema.org",
         "@type": "Person",
         "name": "Ricardo Robles",
+        "givenName": "Ricardo",
+        "familyName": "Robles Fernández",
         "jobTitle": "Programador Backend",
+        "description": "Programador Backend con 6+ años de experiencia en Python, Django, FastAPI, Docker y TypeScript. Ingeniero Informático apasionado por la tecnología.",
         "url": "https://ricardorobles.es",
+        "image": "https://ricardorobles.es/assets/ricardo.webp",
+        "email": "ricardo.r.f@hotmail.com",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "León",
+          "addressRegion": "Castilla y León",
+          "addressCountry": "ES"
+        },
+        "homeLocation": {
+          "@type": "Place",
+          "name": "León, España"
+        },
+        "alumniOf": {
+          "@type": "CollegeOrUniversity",
+          "name": "Universidad de León",
+          "sameAs": "https://www.unileon.es/"
+        },
+        "memberOf": {
+          "@type": "Organization",
+          "name": "QDQmedia"
+        },
         "sameAs": [
           "https://linkedin.com/in/ricardoroblesfernandez/",
-          "https://github.com/rroblf01"
+          "https://github.com/rroblf01",
+          "https://twitter.com/rroblf01"
         ],
-        "knowsAbout": ["Python", "Django", "FastAPI", "Docker", "PostgreSQL", "TypeScript", "JavaScript", "Git"],
-        "description": "Programador Backend con 6+ años de experiencia en Python, Django, Docker y TypeScript. Ingeniero Informático apasionado por la tecnología."
-      },
+        "knowsAbout": ["Python", "Django", "FastAPI", "Docker", "PostgreSQL", "TypeScript", "JavaScript", "Git", "Linux", "REST API"],
+        "skills": ["Backend Development", "API Design", "Database Management", "Cloud Deployment"],
+        "worksFor": {
+          "@type": "Organization",
+          "name": "QDQmedia"
+        }
+      }
+    </script>
+    <script type="application/ld+json">
       {
         "@context": "https://schema.org",
         "@type": "WebSite",
-        "name": "Ricardo Robles — Programador Backend",
-        "url": "https://ricardorobles.es"
-      }]
+        "name": "Ricardo Robles - Programador Backend",
+        "url": "https://ricardorobles.es",
+        "description": "Portafolio de Ricardo Robles, Programador Backend especializado en Python, Django y TypeScript.",
+        "author": {
+          "@type": "Person",
+          "name": "Ricardo Robles"
+        }
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "¿En qué lenguajes y tecnologías trabaja Ricardo Robles?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Ricardo Robles trabaja principalmente con Python, Django, FastAPI, TypeScript, Docker, PostgreSQL y Git. Tiene más de 6 años de experiencia en desarrollo backend."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Dónde está ubicado Ricardo Robles?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Ricardo Robles está ubicado en León, España. Es Ingeniero Informático por la Universidad de León."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Cómo puedo contactar con Ricardo Robles?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Puedes contactar con Ricardo Robles a través de su correo electrónico ricardo.r.f@hotmail.com o mediante su perfil de LinkedIn."
+            }
+          }
+        ]
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "ProfessionalService",
+        "name": "Ricardo Robles - Programador Backend",
+        "description": "Servicios de desarrollo backend especializado en Python, Django, FastAPI y TypeScript. Más de 6 años de experiencia.",
+        "url": "https://ricardorobles.es",
+        "telephone": "+34-ricardo-r-f",
+        "email": "ricardo.r.f@hotmail.com",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "León",
+          "addressRegion": "Castilla y León",
+          "addressCountry": "ES"
+        },
+        "areaServed": ["León", "España", "Remoto"],
+        "serviceType": ["Desarrollo Backend", "API REST", "Bases de datos", "DevOps"],
+        "priceRange": "$$",
+        "image": "https://ricardorobles.es/assets/meta-portafolios.jpg",
+        "sameAs": [
+          "https://linkedin.com/in/ricardoroblesfernandez/",
+          "https://github.com/rroblf01",
+          "https://twitter.com/rroblf01"
+        ]
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Inicio",
+            "item": "https://ricardorobles.es"
+          }
+        ]
+      }
     </script>
 
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <link rel="preconnect" href="https://region1.google-analytics.com" />
     <link rel="preconnect" href="https://www.googletagmanager.com" />
     <link rel="preload" href="/assets/ricardo.webp" as="image" />
+    <link rel="preload" href="/assets/meta-portafolios.jpg" as="image" />
 
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-31TBY36R16"></script>
     <script>

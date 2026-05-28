@@ -1,0 +1,87 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Navbar from "../../components/Navbar.astro";
+import BlogList from "../../components/BlogList.astro";
+import { blogPosts } from "../../data/blog/posts";
+
+const title = "Blog - Ricardo Robles - Programador Backend";
+const description = "Artículos técnicos sobre Python, Django, FastAPI, Zig y desarrollo backend. Consejos y experiencias de un programador con 6+ años.";
+
+const allTags = [...new Set(blogPosts.flatMap(p => p.tags))].sort();
+const perPage = 2;
+const totalPages = Math.max(1, Math.ceil(blogPosts.length / perPage));
+const pagedPosts = blogPosts.slice(0, perPage);
+---
+<Layout title={title} description={description}>
+  <Navbar />
+  <main class="max-w-3xl mx-auto px-4 py-10">
+    <h1 class="text-4xl mb-2">Blog</h1>
+    <p class="text-gray-600 dark:text-gray-400 mb-10">Artículos técnicos y experiencias sobre desarrollo backend</p>
+    <BlogList posts={pagedPosts} allTags={allTags} currentPage={1} totalPages={totalPages} />
+  </main>
+</Layout>
+
+<script>
+  const cards = Array.from(document.querySelectorAll(".post-card"));
+  const searchInput = document.getElementById("q");
+  const tagSelect = document.getElementById("tag");
+  const postsGrid = document.getElementById("posts-grid");
+
+  function getFiltered() {
+    const q = (searchInput?.value || "").toLowerCase();
+    const tag = tagSelect?.value || "";
+    return cards.filter(card => {
+      const title = card.dataset.title || "";
+      const tags = card.dataset.tags || "";
+      const matchesSearch = !q || title.includes(q);
+      const matchesTag = !tag || tags.split(",").includes(tag);
+      return matchesSearch && matchesTag;
+    });
+  }
+
+  function render() {
+    const filtered = getFiltered();
+    const totalPages = Math.max(1, Math.ceil(filtered.length / 2));
+    cards.forEach(c => {
+      if (filtered.includes(c)) {
+        c.classList.remove("hidden");
+        c.style.display = "";
+      } else {
+        c.classList.remove("hidden");
+        c.style.display = "none";
+      }
+    });
+  }
+
+  function updateURL() {
+    const params = new URLSearchParams();
+    const q = searchInput?.value;
+    const tag = tagSelect?.value;
+    if (q) params.set("q", q);
+    if (tag) params.set("tag", tag);
+    const newUrl = params.toString() ? `/blog/?${params}` : "/blog/";
+    history.replaceState(null, "", newUrl);
+  }
+
+  searchInput?.addEventListener("input", () => { render(); updateURL(); });
+  tagSelect?.addEventListener("change", () => { render(); updateURL(); });
+
+  document.querySelectorAll("[data-tag-btn]").forEach(btn => {
+    btn.addEventListener("click", () => {
+      if (tagSelect) {
+        tagSelect.value = btn.dataset.tagBtn;
+        render();
+        updateURL();
+      }
+    });
+  });
+
+  (function initFromURL() {
+    const params = new URLSearchParams(location.search);
+    const q = params.get("q") || "";
+    const tag = params.get("tag") || "";
+    if (searchInput) searchInput.value = q;
+    if (tagSelect) tagSelect.value = tag;
+    if (q || tag) render();
+  })();
+</script>

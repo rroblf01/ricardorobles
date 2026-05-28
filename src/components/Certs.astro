@@ -6,10 +6,10 @@ import { certs } from "../data/certs";
   <h2 class="text-2xl mt-10">Certificaciones</h2>
   <div class="lg:flex flex-wrap justify-center mt-10 space-x-2 space-y-2">
     {certs.map((cert) => (
-      <div class="flex items-center justify-center">
+      <article class="flex items-center justify-center">
         <div class="relative flex w-full max-w-[48rem] flex-row rounded-xl bg-clip-border text-gray-700 dark:text-gray-200 shadow-md bg-[#F5F0E0] dark:bg-gray-800">
           <div class="relative m-0 w-auto shrink-0 overflow-hidden rounded-xl rounded-r-none bg-[#EDE8D8] dark:bg-gray-700 bg-clip-border text-gray-700">
-            <img src={cert.imgPath} alt={cert.title} class="h-auto w-full object-cover" width="150" height="150" />
+            <img src={cert.imgPath} alt={`Certificado: ${cert.title}`} class="h-auto w-full object-cover" width="150" height="150" decoding="async" />
           </div>
           <div class="p-6">
             <h4 class="mb-4 block font-sans text-base font-semibold uppercase leading-relaxed tracking-normal text-[#8F0F37] dark:text-amber-400 antialiased">
@@ -20,7 +20,7 @@ import { certs } from "../data/certs";
             </p>
           </div>
         </div>
-      </div>
+      </article>
     ))}
   </div>
 </section>

@@ -1,0 +1,33 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import Navbar from "../../../components/Navbar.astro";
+import BlogList from "../../../components/BlogList.astro";
+import { blogPosts } from "../../../data/blog/posts";
+import type { GetStaticPaths } from "astro";
+
+export const getStaticPaths = (() => {
+  const perPage = 2;
+  const totalPages = Math.max(1, Math.ceil(blogPosts.length / perPage));
+  return Array.from({ length: totalPages - 1 }, (_, i) => ({
+    params: { page: String(i + 2) },
+    props: { page: i + 2 }
+  }));
+}) satisfies GetStaticPaths;
+
+const { page } = Astro.props;
+const perPage = 2;
+const allTags = [...new Set(blogPosts.flatMap(p => p.tags))].sort();
+const totalPages = Math.max(1, Math.ceil(blogPosts.length / perPage));
+const start = (page - 1) * perPage;
+const pagedPosts = blogPosts.slice(start, start + perPage);
+const title = `Blog - Página ${page} - Ricardo Robles Programador Backend`;
+const description = `Artículos técnicos sobre Python, Django, FastAPI y desarrollo backend - Página ${page}.`;
+---
+<Layout title={title} description={description}>
+  <Navbar />
+  <main class="max-w-3xl mx-auto px-4 py-10">
+    <h1 class="text-4xl mb-2">Blog</h1>
+    <p class="text-gray-600 dark:text-gray-400 mb-10">Artículos técnicos y experiencias sobre desarrollo backend — Página {page}</p>
+    <BlogList posts={pagedPosts} allTags={allTags} currentPage={page} totalPages={totalPages} />
+  </main>
+</Layout>

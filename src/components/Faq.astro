@@ -1,0 +1,47 @@
+---
+const faqs = [
+  {
+    question: "¿En qué lenguajes y tecnologías trabaja Ricardo Robles?",
+    answer: "Ricardo Robles trabaja principalmente con Python, Django, FastAPI, TypeScript, Docker, PostgreSQL y Git. Tiene más de 6 años de experiencia en desarrollo backend."
+  },
+  {
+    question: "¿Dónde está ubicado Ricardo Robles?",
+    answer: "Ricardo Robles está ubicado en León, España. Es Ingeniero Informático por la Universidad de León."
+  },
+  {
+    question: "¿Cómo puedo contactar con Ricardo Robles?",
+    answer: "Puedes contactar con Ricardo Robles a través de su correo electrónico ricardo.r.f@hotmail.com o mediante su perfil de LinkedIn."
+  }
+];
+---
+
+<section id="faq" class="max-w-2xl mx-auto mt-14 py-5 fade-in" itemscope itemtype="https://schema.org/FAQPage">
+  <h2 class="text-3xl text-center mb-8">Preguntas Frecuentes</h2>
+  <div class="space-y-4">
+    {faqs.map(faq => (
+      <details class="group bg-[#F0EFE9] dark:bg-gray-800 rounded-lg">
+        <summary class="flex justify-between items-center cursor-pointer p-4 font-medium text-gray-800 dark:text-gray-200 list-none">
+          <span itemprop="name">{faq.question}</span>
+          <span class="transition group-open:rotate-180">
+            <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24">
+              <path d="M6 9l6 6 6-6"></path>
+            </svg>
+          </span>
+        </summary>
+        <div class="p-4 pt-0 text-gray-600 dark:text-gray-300" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+          <p itemprop="text">{faq.answer}</p>
+        </div>
+      </details>
+    ))}
+  </div>
+</section>
+
+<style>
+  details[open] summary ~ * {
+    animation: sweep .3s ease-in-out;
+  }
+  @keyframes sweep {
+    0% {opacity: 0; transform: translateY(-8px)}
+    100% {opacity: 1; transform: translateY(0)}
+  }
+</style>
