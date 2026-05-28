@@ -3,6 +3,7 @@ import Layout from "../../../layouts/Layout.astro";
 import Navbar from "../../../components/Navbar.astro";
 import BlogList from "../../../components/BlogList.astro";
 import { blogPosts } from "../../../data/blog/posts";
+import { getWordCount, getReadingTime } from "../../../data/blog/content";
 import type { GetStaticPaths } from "astro";
 
 export const getStaticPaths = (() => {
@@ -22,12 +23,187 @@ const start = (page - 1) * perPage;
 const pagedPosts = blogPosts.slice(start, start + perPage);
 const title = `Blog - Página ${page} - Ricardo Robles Programador Backend`;
 const description = `Artículos técnicos sobre Python, Django, FastAPI y desarrollo backend - Página ${page}.`;
+
+const allPostsData = blogPosts.map(p => ({
+  slug: p.slug,
+  title: p.title,
+  date: p.date,
+  description: p.description,
+  tags: p.tags,
+  wordCount: getWordCount(p.slug),
+  readingTime: getReadingTime(p.slug),
+}));
 ---
 <Layout title={title} description={description}>
   <Navbar />
   <main class="max-w-3xl mx-auto px-4 py-10">
     <h1 class="text-4xl mb-2">Blog</h1>
-    <p class="text-gray-600 dark:text-gray-400 mb-10">Artículos técnicos y experiencias sobre desarrollo backend — Página {page}</p>
+    <p class="text-gray-600 dark:text-gray-400 mb-10">Artículos técnicos y experiencias sobre desarrollo backend — <strong id="post-count">{blogPosts.length} artículos</strong> — Página {page}</p>
     <BlogList posts={pagedPosts} allTags={allTags} currentPage={page} totalPages={totalPages} />
   </main>
 </Layout>
+
+<script id="blog-data" type="application/json" set:html={JSON.stringify(allPostsData)}></script>
+
+<script>
+  const allPosts = JSON.parse(document.getElementById("blog-data").textContent);
+  const staticCards = Array.from(document.querySelectorAll(".post-card"));
+  const postsGrid = document.getElementById("posts-grid");
+  const pagination = document.getElementById("pagination");
+  const searchInput = document.getElementById("q");
+  const tagFilterBtns = document.querySelectorAll(".tag-filter-btn");
+  const cardTagBtns = document.querySelectorAll("[data-tag-btn]");
+
+  function getSelectedTags() {
+    return Array.from(tagFilterBtns)
+      .filter(btn => btn.dataset.active === "true")
+      .map(btn => btn.dataset.tag);
+  }
+
+  function hasFilters() {
+    const q = (searchInput?.value || "").toLowerCase();
+    const selectedTags = getSelectedTags();
+    return !!(q || selectedTags.length);
+  }
+
+  function getFiltered() {
+    const q = (searchInput?.value || "").toLowerCase();
+    const selectedTags = getSelectedTags();
+    return allPosts.filter(post => {
+      const matchesSearch = !q || post.title.toLowerCase().includes(q);
+      const matchesTag = selectedTags.length === 0 || selectedTags.some(t => post.tags.includes(t));
+      return matchesSearch && matchesTag;
+    });
+  }
+
+  function createCardHTML(post) {
+    const tagsHTML = post.tags.map(t =>
+      `<button data-tag-btn="${t.replace(/"/g, "&quot;")}" class="px-2 py-1 text-xs rounded bg-[#E6E7C6] dark:bg-gray-700 hover:bg-[#F0BF9B] dark:hover:bg-amber-600 transition-colors cursor-pointer">${t}</button>`
+    ).join("");
+
+    return `<article data-slug="${post.slug}" data-title="${post.title.toLowerCase()}" data-tags="${post.tags.join(",")}" class="post-card post-card-dynamic p-6 rounded-xl bg-[#F5F0E0] dark:bg-gray-800 shadow-md">
+      <div class="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400 mb-2">
+        <time datetime="${post.date}">${post.date}</time>
+        <span>·</span>
+        <span>${post.readingTime}</span>
+        <span>·</span>
+        <span>${post.wordCount} palabras</span>
+      </div>
+      <h2 class="text-2xl font-semibold mb-2">
+        <a href="/blog/${post.slug}/" class="hover:text-[#014D85] dark:hover:text-amber-400 transition-colors">${post.title}</a>
+      </h2>
+      <p class="text-gray-600 dark:text-gray-300 mb-4">${post.description}</p>
+      <div class="flex flex-wrap gap-2">${tagsHTML}</div>
+    </article>`;
+  }
+
+  function updatePostCount(count) {
+    const el = document.getElementById("post-count");
+    if (el) el.textContent = count + " artículos";
+  }
+
+  function render() {
+    const active = hasFilters();
+
+    if (!active) {
+      document.querySelectorAll(".post-card-dynamic").forEach(el => el.remove());
+      staticCards.forEach(c => c.style.display = "");
+      pagination.style.display = "";
+      updatePostCount(allPosts.length);
+      return;
+    }
+
+    staticCards.forEach(c => c.style.display = "none");
+    pagination.style.display = "none";
+    document.querySelectorAll(".post-card-dynamic").forEach(el => el.remove());
+
+    const filtered = getFiltered();
+    updatePostCount(filtered.length);
+    const fragment = document.createDocumentFragment();
+    filtered.forEach(post => {
+      const div = document.createElement("div");
+      div.innerHTML = createCardHTML(post);
+      fragment.appendChild(div.firstElementChild);
+    });
+    postsGrid.appendChild(fragment);
+  }
+
+  function getCurrentPage() {
+    const m = location.pathname.match(/\/blog\/page\/(\d+)\//);
+    return m ? m[1] : "1";
+  }
+
+  function updateURL() {
+    const params = new URLSearchParams();
+    const q = searchInput?.value;
+    const selectedTags = getSelectedTags();
+    const cur = getCurrentPage();
+    const base = cur === "1" ? "/blog/" : `/blog/page/${cur}/`;
+    if (q) params.set("q", q);
+    if (selectedTags.length) params.set("tags", selectedTags.join(","));
+    const newUrl = params.toString() ? `${base}?${params}` : base;
+    history.replaceState(null, "", newUrl);
+  }
+
+  function toggleTag(tag) {
+    const btn = Array.from(tagFilterBtns).find(b => b.dataset.tag === tag);
+    if (!btn) return;
+    const isActive = btn.dataset.active === "true";
+    btn.dataset.active = isActive ? "false" : "true";
+    reattachCardTagListeners();
+    render();
+    updateURL();
+  }
+
+  function reattachCardTagListeners() {
+    document.querySelectorAll("[data-tag-btn]").forEach(btn => {
+      btn.removeEventListener("click", onCardTagClick);
+      btn.addEventListener("click", onCardTagClick);
+    });
+  }
+
+  function onCardTagClick(e) {
+    e.stopPropagation();
+    toggleTag(e.currentTarget.dataset.tagBtn);
+  }
+
+  document.getElementById("toggle-tags-btn")?.addEventListener("click", () => {
+    const tagsFilter = document.getElementById("tags-filter");
+    if (!tagsFilter) return;
+    const hidden = tagsFilter.dataset.tagsHidden === "true";
+    tagsFilter.dataset.tagsHidden = hidden ? "false" : "true";
+    const btn = document.getElementById("toggle-tags-btn");
+    if (btn) {
+      btn.textContent = hidden ? "▼" : "▶";
+      btn.title = hidden ? "Ocultar tags" : "Mostrar tags";
+    }
+  });
+
+  tagFilterBtns.forEach(btn => {
+    btn.addEventListener("click", () => toggleTag(btn.dataset.tag));
+  });
+
+  cardTagBtns.forEach(btn => {
+    btn.addEventListener("click", onCardTagClick);
+  });
+
+  searchInput?.addEventListener("input", () => { render(); updateURL(); });
+
+  (function initFromURL() {
+    const params = new URLSearchParams(location.search);
+    const q = params.get("q") || "";
+    const tagsParam = params.get("tags") || "";
+    if (searchInput) searchInput.value = q;
+    if (tagsParam) {
+      const tags = tagsParam.split(",");
+      tags.forEach(tag => {
+        const btn = Array.from(tagFilterBtns).find(b => b.dataset.tag === tag);
+        if (btn) btn.dataset.active = "true";
+      });
+    }
+    if (q || tagsParam) {
+      reattachCardTagListeners();
+      render();
+    }
+  })();
+</script>
