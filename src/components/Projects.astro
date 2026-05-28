@@ -32,13 +32,13 @@ import { projects } from "../data/projects";
             <a href={project.url} target="_blank" class="text-[#4A4A4A] dark:text-gray-400 underline" rel="noopener noreferrer">
               Ver proyecto
             </a>
-            <div class="text-xs mt-2">
+            <div class="text-xs mt-2 space-y-1">
               {project.sources.map((source) => (
                 <div>
-                  <p>{source.text}</p>
-                  <a href={source.url} target="_blank" rel="noopener noreferrer" class="text-[#4A4A4A] dark:text-gray-400 underline">
-                    <p>{source.text}</p>
+                  <a href={source.url} target="_blank" rel="noopener noreferrer" class="text-[#8F0F37] dark:text-amber-400 underline font-medium">
+                    {source.text}
                   </a>
+                  <span class="text-gray-500 dark:text-gray-400 ml-2 break-all">{source.url}</span>
                 </div>
               ))}
             </div>
