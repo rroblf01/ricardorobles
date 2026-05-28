@@ -6,7 +6,7 @@ import { blogPosts } from "../../../data/blog/posts";
 import type { GetStaticPaths } from "astro";
 
 export const getStaticPaths = (() => {
-  const perPage = 2;
+  const perPage = 5;
   const totalPages = Math.max(1, Math.ceil(blogPosts.length / perPage));
   return Array.from({ length: totalPages - 1 }, (_, i) => ({
     params: { page: String(i + 2) },
@@ -15,7 +15,7 @@ export const getStaticPaths = (() => {
 }) satisfies GetStaticPaths;
 
 const { page } = Astro.props;
-const perPage = 2;
+const perPage = 5;
 const allTags = [...new Set(blogPosts.flatMap(p => p.tags))].sort();
 const totalPages = Math.max(1, Math.ceil(blogPosts.length / perPage));
 const start = (page - 1) * perPage;

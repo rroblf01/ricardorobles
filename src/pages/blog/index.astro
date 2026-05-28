@@ -8,7 +8,7 @@ const title = "Blog - Ricardo Robles - Programador Backend";
 const description = "Artículos técnicos sobre Python, Django, FastAPI, Zig y desarrollo backend. Consejos y experiencias de un programador con 6+ años.";
 
 const allTags = [...new Set(blogPosts.flatMap(p => p.tags))].sort();
-const perPage = 2;
+const perPage = 5;
 const totalPages = Math.max(1, Math.ceil(blogPosts.length / perPage));
 const pagedPosts = blogPosts.slice(0, perPage);
 ---
@@ -41,7 +41,6 @@ const pagedPosts = blogPosts.slice(0, perPage);
 
   function render() {
     const filtered = getFiltered();
-    const totalPages = Math.max(1, Math.ceil(filtered.length / 2));
     cards.forEach(c => {
       if (filtered.includes(c)) {
         c.classList.remove("hidden");
