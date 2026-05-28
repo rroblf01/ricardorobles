@@ -192,7 +192,7 @@ export const projects: Project[] = [
     techs: [TECHS.astro, TECHS.typescript]
   },
   {
-    url: "https://ricardo-image-compressor.deno.dev/",
+    url: "https://ricardo-image-compressor.rroblf01.deno.net/",
     title: "Image Compressor",
     description:
       "Un simple y rápido compresor de imágenes en línea hecho con Javascript vanilla.",
@@ -203,7 +203,7 @@ export const projects: Project[] = [
     techs: [TECHS.html, TECHS.css, TECHS.javascript]
   },
   {
-    url: "https://ricardo-api-mock.deno.dev/",
+    url: "https://ricardo-api-mock.rroblf01.deno.net/",
     title: "Mock API",
     description:
       "Una herramienta para Mockear una API, para ello he usado Javascript y la base de datos de Deno KV.",
@@ -214,7 +214,7 @@ export const projects: Project[] = [
     techs: [TECHS.html, TECHS.css, TECHS.javascript]
   },
   {
-    url: "https://ricardo-jsontointerface.deno.dev/",
+    url: "https://ricardo-jsontointerface.rroblf01.deno.net/",
     title: "JSON to Interface",
     description:
       "Una herramienta para convertir un JSON en una interfaz de TypeScript, para ello he usado Javascript.",
