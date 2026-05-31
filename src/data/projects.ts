@@ -26,6 +26,17 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    url: "https://github.com/rroblf01/gofly/",
+    title: "gofly",
+    description:
+      "Servidor de archivos estáticos y reverse proxy de alto rendimiento desarrollado en Go (pure stdlib).",
+    imgPath: "/assets/gofly.webp",
+    sources: [
+      {url: "https://github.com/rroblf01/gofly", text: "Code"},
+    ],
+    techs: [TECHS.python, TECHS.golang]
+  },
+  {
     url: "https://rroblf01.github.io/lapinq/",
     title: "lapinq",
     description:
