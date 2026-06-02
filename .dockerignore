@@ -1,8 +1,0 @@
-Dockerfile
-.dockerignore
-dist/
-node_modules/
-.git/
-.gitignore
-README.md
-LICENSE
