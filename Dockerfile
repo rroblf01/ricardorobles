@@ -10,16 +10,19 @@ COPY . .
 
 RUN bun run build
 
-# Stage 2: Production
-FROM nginx:alpine
-
-COPY nginx.conf /etc/nginx/conf.d/default.conf
-
-COPY --from=builder /app/dist/ /usr/share/nginx/html/
-
-RUN find /usr/share/nginx/html -type f \( -name "*.js" -o -name "*.css" -o -name "*.html" -o -name "*.json" -o -name "*.svg" -o -name "*.xml" -o -name "*.txt" \) \
+# Precompress text assets so gofly serves .gz directly (precompressed: true)
+RUN find /app/dist -type f \( -name "*.js" -o -name "*.css" -o -name "*.html" -o -name "*.json" -o -name "*.svg" -o -name "*.xml" -o -name "*.txt" -o -name "*.webmanifest" \) \
     -exec gzip -9 -k {} \;
+
+COPY --from=ghcr.io/rroblf01/gofly:1.1.1 /gofly /gofly
+RUN /gofly -convert nginx.conf > /config.json && /gofly -t -config /config.json
+
+# Stage 2: Production
+FROM ghcr.io/rroblf01/gofly:1.1.1
+
+COPY --from=builder /config.json /etc/gofly/config.json
+COPY --from=builder /app/dist/ /usr/share/nginx/html
 
 EXPOSE 80
 
-CMD ["nginx", "-g", "daemon off;"]
+CMD ["-config","/etc/gofly/config.json"]
