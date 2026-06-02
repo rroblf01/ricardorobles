@@ -9,6 +9,7 @@ RUN bun install --frozen-lockfile
 COPY . .
 
 RUN bun run build
+RUN ls -la /app/dist && test -f /app/dist/index.html
 
 # Precompress text assets so gofly serves .gz directly (precompressed: true)
 RUN find /app/dist -type f \( -name "*.js" -o -name "*.css" -o -name "*.html" -o -name "*.json" -o -name "*.svg" -o -name "*.xml" -o -name "*.txt" -o -name "*.webmanifest" \) \
@@ -18,11 +19,12 @@ COPY --from=ghcr.io/rroblf01/gofly:1.1.1 /gofly /gofly
 RUN /gofly -convert nginx.conf > /config.json && /gofly -t -config /config.json
 
 # Stage 2: Production
-FROM ghcr.io/rroblf01/gofly:1.1.1
+FROM debian:trixie-slim
+COPY --from=ghcr.io/rroblf01/gofly:1.1.1 /gofly /gofly
 
 COPY --from=builder /config.json /etc/gofly/config.json
-COPY --from=builder /app/dist/ /usr/share/nginx/html
+COPY --from=builder /app/dist/ /usr/share/nginx/html/
 
 EXPOSE 80
 
-CMD ["-config","/etc/gofly/config.json"]
+CMD ["/gofly","-config","/etc/gofly/config.json"]
