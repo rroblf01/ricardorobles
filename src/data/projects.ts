@@ -26,6 +26,17 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    url: "https://github.com/rroblf01/rabbitinspect/",
+    title: "rabbitinspect",
+    description:
+      "Un perf y analizador de rendimiento de código Python escrito en Rust (a través de PyO3).",
+    imgPath: "/assets/rabbitinspect.webp",
+    sources: [
+      {url: "https://github.com/rroblf01/rabbitinspect", text: "Code"},
+    ],
+    techs: [TECHS.python, TECHS.rust]
+  },
+  {
     url: "https://github.com/rroblf01/gofly/",
     title: "gofly",
     description:
@@ -34,7 +45,7 @@ export const projects: Project[] = [
     sources: [
       {url: "https://github.com/rroblf01/gofly", text: "Code"},
     ],
-    techs: [TECHS.python, TECHS.golang]
+    techs: [TECHS.golang]
   },
   {
     url: "https://rroblf01.github.io/lapinq/",
