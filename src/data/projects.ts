@@ -26,6 +26,17 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    url: "https://github.com/rroblf01/zig-maturin",
+    title: "zig-maturin",
+    description:
+      "Compilador y framework para crear extensiones de Python en Zig con soporte nativo de compilación cruzada zero-config y rendimiento extremo.",
+    imgPath: "/assets/zig-maturin.webp",
+    sources: [
+      {url: "https://github.com/rroblf01/zig-maturin", text: "Code"},
+    ],
+    techs: [TECHS.python, TECHS.zig]
+  },
+  {
     url: "https://github.com/rroblf01/rabbitinspect/",
     title: "rabbitinspect",
     description:
