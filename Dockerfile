@@ -14,11 +14,11 @@ RUN bun run build
 RUN find /app/dist -type f \( -name "*.js" -o -name "*.css" -o -name "*.html" -o -name "*.json" -o -name "*.svg" -o -name "*.xml" -o -name "*.txt" -o -name "*.webmanifest" \) \
     -exec gzip -9 -k {} \;
 
-COPY --from=ghcr.io/rroblf01/gofly:1.1.1 /gofly /gofly
+COPY --from=ghcr.io/rroblf01/gofly:1.1.2 /gofly /gofly
 RUN /gofly -convert nginx.conf > /config.json && /gofly -t -config /config.json
 
 # Stage 2: Production
-FROM ghcr.io/rroblf01/gofly:1.1.1
+FROM ghcr.io/rroblf01/gofly:1.1.2
 
 COPY --from=builder /config.json /etc/gofly/config.json
 COPY --from=builder /app/dist/ /usr/share/nginx/html/
