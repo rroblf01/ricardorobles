@@ -26,6 +26,17 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    url: "https://graphojs.ricardorobles.es/",
+    title: "graphojs",
+    description:
+      "Herramienta para generar diagramas interactivos en el navegador: nodos, enlaces, grupos, layouts automáticos, drag & drop... todo lo que necesitas para representar grafos y flujos.",
+    imgPath: "/assets/grapho.webp",
+    sources: [
+      {url: "https://github.com/rroblf01/graphojs", text: "Code"},
+    ],
+    techs: [TECHS.typescript]
+  },
+  {
     url: "https://github.com/rroblf01/zig-maturin",
     title: "zig-maturin",
     description:
