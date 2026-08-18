@@ -26,6 +26,17 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    url: "https://rroblf01.github.io/lapinbeam/",
+    title: "lapinbeam",
+    description:
+      "Framework de sistemas distribuidos en tiempo real para Python, con núcleo en Rust.",
+    imgPath: "/assets/lapinbeam.webp",
+    sources: [
+      {url: "https://github.com/rroblf01/lapinbeam", text: "Code"},
+    ],
+    techs: [TECHS.python, TECHS.rust]
+  },
+  {
     url: "https://graphojs.ricardorobles.es/",
     title: "graphojs",
     description:
