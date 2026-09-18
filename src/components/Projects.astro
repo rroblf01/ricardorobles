@@ -45,7 +45,7 @@ import { projects } from "../data/projects";
             <div class="text-xs mt-3 flex items-center flex-wrap gap-1.5">
               {project.techs.map((tech) => (
                 <span class="inline-flex items-center justify-center w-[30px] h-[30px]">
-                  <img src={tech.path} alt={tech.name} title={tech.name} class="max-w-full max-h-full" />
+                  <img src={tech.path} alt={tech.name} title={tech.name} class="max-w-full max-h-full" width="30" height="30" loading="lazy" decoding="async" />
                 </span>
               ))}
             </div>

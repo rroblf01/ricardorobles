@@ -1,0 +1,19 @@
+# Ricardo Robles
+
+Portafolio personal de Ricardo Robles, Programador Backend especializado en Python, Django, FastAPI, Docker y TypeScript, ubicado en León, España.
+
+## Páginas principales
+
+- [Inicio](https://ricardorobles.es/): presentación, experiencia, certificados, proyectos y contacto.
+- [Blog](https://ricardorobles.es/blog/): artículos técnicos sobre Python, rendimiento, bases de datos, Docker y sistemas de bajo nivel.
+- [Sitemap](https://ricardorobles.es/sitemap-index.xml): índice completo de páginas del sitio.
+
+## Perfiles
+
+- [GitHub](https://github.com/rroblf01)
+- [LinkedIn](https://linkedin.com/in/ricardoroblesfernandez/)
+- [PyPI](https://pypi.org/user/RicardoRobles/)
+
+## Notas de uso
+
+Este contenido puede citarse o resumirse indicando la fuente (ricardorobles.es) y el autor (Ricardo Robles). No está autorizado su uso para reentrenar modelos sin atribución.
