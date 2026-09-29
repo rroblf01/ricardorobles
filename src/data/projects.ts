@@ -26,6 +26,17 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    url: "https://github.com/rroblf01/jirrabit-mcp",
+    title: "jirrabit-mcp",
+    description:
+      "Servicor MCP para Jirrabit, que permite la integración de Jirrabit con LLMs y otros sistemas de IA.",
+    imgPath: "/assets/jirrabit-mcp.webp",
+    sources: [
+      {url: "https://github.com/rroblf01/jirrabit-mcp", text: "Code"},
+    ],
+    techs: [TECHS.golang]
+  },
+  {
     url: "https://rroblf01.github.io/lapinbeam/",
     title: "lapinbeam",
     description:
