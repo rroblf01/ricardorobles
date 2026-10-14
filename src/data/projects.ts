@@ -13,6 +13,7 @@ const TECHS = {
   pydantic_ai: { path: "/assets/pydantic-ai.svg", name: "Pydantic AI" },
   rust: { path: "/assets/rust.svg", name: "Rust" },
   astro: { path: "/assets/astro.svg", name: "Astro" },
+  v: {path: "/assets/v.svg", name: "V"},
 };
 
 export interface Project {
@@ -25,6 +26,17 @@ export interface Project {
 }
 
 export const projects: Project[] = [
+  {
+    url: "https://github.com/rroblf01/vcraft",
+    title: "vcraft",
+    description:
+      "Bindings para CPython escritos en V, un generador de código que convierte declaraciones de V anotadas en una API de Python, y una herramienta de construcción que compila el resultado y genera un archivo *wheel* listo para subir a PyPI.",
+    imgPath: "/assets/vcraft.webp",
+    sources: [
+      {url: "https://github.com/rroblf01/vcraft", text: "Code"},
+    ],
+    techs: [TECHS.v, TECHS.python]
+  },
   {
     url: "https://github.com/rroblf01/jirrabit-mcp",
     title: "jirrabit-mcp",
