@@ -27,7 +27,18 @@ export interface Project {
 
 export const projects: Project[] = [
   {
-    url: "https://github.com/rroblf01/vcraft",
+    url: "https://rroblf01.github.io/vqubit/",
+    title: "vqubit",
+    description:
+      "Un framework de computación cuántica para Python, sin dependencias y escrito en V.",
+    imgPath: "/assets/vqubit.webp",
+    sources: [
+      {url: "https://github.com/rroblf01/vqubit", text: "Code"},
+    ],
+    techs: [TECHS.v, TECHS.python]
+  },
+  {
+    url: "https://rroblf01.github.io/vcraft/",
     title: "vcraft",
     description:
       "Bindings para CPython escritos en V, un generador de código que convierte declaraciones de V anotadas en una API de Python, y una herramienta de construcción que compila el resultado y genera un archivo *wheel* listo para subir a PyPI.",
