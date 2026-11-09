@@ -27,7 +27,7 @@ export interface Project {
 
 export const projects: Project[] = [
   {
-    url: "https://github.com/rroblf01/vlambda/",
+    url: "https://vlambda.ricardorobles.es/",
     title: "vlambda",
     description:
       "Un framework de computación cuántica para Python, sin dependencias y escrito en V.",
