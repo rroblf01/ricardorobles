@@ -27,6 +27,17 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    url: "https://ule-curso-python.ricardorobles.es/",
+    title: "Ule Curso Python",
+    description:
+      "Web del curso introductorio de Python para estudiantes de 1.º de la Universidad de León. Contiene ejercicios, soluciones y material adicional. Mediante WebAssembly se ha integrado un intérprete de Python en el navegador para poder ejecutar los ejercicios sin necesidad de instalar nada.",
+    imgPath: "/assets/ule-curso-python.webp",
+    sources: [
+      {url: "https://github.com/rroblf01/ule-curso-python", text: "Code"},
+    ],
+    techs: [TECHS.astro, TECHS.html, TECHS.css, TECHS.javascript, TECHS.typescript]
+  },
+  {
     url: "https://vlambda.ricardorobles.es/",
     title: "vlambda",
     description:
