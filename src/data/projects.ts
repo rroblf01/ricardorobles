@@ -11,6 +11,7 @@ const TECHS = {
   css: { path: "/assets/css.svg", name: "CSS" },
   javascript: { path: "/assets/javascript.svg", name: "JavaScript" },
   pydantic_ai: { path: "/assets/pydantic-ai.svg", name: "Pydantic AI" },
+  langchain: { path: "/assets/langchain.svg", name: "LangChain" },
   rust: { path: "/assets/rust.svg", name: "Rust" },
   astro: { path: "/assets/astro.svg", name: "Astro" },
   v: {path: "/assets/v.svg", name: "V"},

@@ -1,7 +1,7 @@
 {
   "name": "Ricardo Robles - Programador Backend",
   "short_name": "Ricardo Robles",
-  "description": "Portafolio de Ricardo Robles, Programador Backend especializado en Python, Django y TypeScript.",
+  "description": "Portafolio de Ricardo Robles, Programador Backend especializado en Python e IA (Pydantic AI, LangChain, RAG y MCP).",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#E6E7C6",

@@ -1,6 +1,6 @@
 # Ricardo Robles
 
-Portafolio personal de Ricardo Robles, Programador Backend especializado en Python, Django, FastAPI, Docker y TypeScript, ubicado en León, España.
+Portafolio personal de Ricardo Robles, Programador Backend especializado en Python e Inteligencia Artificial (Pydantic AI, LangChain, RAG, respuestas estructuradas y servidores MCP), ubicado en León, España.
 
 ## Páginas principales
 

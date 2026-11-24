@@ -1,5 +1,7 @@
 export const techs = [
   { title: "Python", subtitle: "El lenguaje con el que me siento más cómodo trabajando. Usado profesionalmente desde 2020.", imgPath: "/assets/python.svg" },
+  { title: "Pydantic AI", subtitle: "Mi framework principal para agentes de IA: respuestas estructuradas, tools y servidores MCP.", imgPath: "/assets/pydantic-ai.svg" },
+  { title: "LangChain", subtitle: "Framework que uso para construir aplicaciones con LLMs y sistemas RAG.", imgPath: "/assets/langchain.svg" },
   { title: "Django", subtitle: "El framework con el que me siento más cómodo trabajando. Usado profesionalmente desde 2022.", imgPath: "/assets/django.svg" },
   { title: "FastAPI", subtitle: "Framework que uso para hacer APIs rápidas y eficientes. Usado profesionalmente desde 2022.", imgPath: "/assets/fastapi.svg" },
   { title: "Docker", subtitle: "Usado profesionalmente desde 2020.", imgPath: "/assets/docker.svg" },
