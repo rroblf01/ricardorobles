@@ -1,33 +1,86 @@
 ---
+import { techIcons } from "../data/techIcons";
+
 export interface Props {
   title: string;
-  elements: { title: string; subtitle: string }[];
+  elements: {
+    title: string;
+    subtitle: string;
+    /** Image shown on the timeline node instead of the plain dot. */
+    logo?: string;
+    duration?: string;
+    /** "MM/YYYY" start of an ongoing period, so its duration can be refreshed client-side. */
+    liveDurationStart?: string;
+    description?: string[];
+    techs?: string[];
+  }[];
 }
 const { title, elements } = Astro.props;
+// With logos the nodes are bigger, so the line and the text indent move with them.
+const withLogos = elements.some((el) => el.logo);
 ---
 
 <div class="flex flex-col items-center">
   <p class="text-lg">{title}</p>
   <div class="relative max-w-2xl">
-  <div class="absolute top-0 h-full border-r-2 border-gray-500 left-3"></div>
-  <ul class="space-y-10">
-    <li>
-      <div class="flex items-center">
-        <span class="w-6 h-6 bg-gray-500 rounded-full"></span>
-        <h3 class="ml-4 font-bold text-gray-600">Actualidad</h3>
-      </div>
-      <div class="ml-12">
-        <p class="text-sm text-[#4A4A4A] min-h-0"> </p>
-      </div>
-    </li>
+  <div class:list={["absolute top-0 h-full border-r-2 border-gray-500", withLogos ? "left-6" : "left-3"]}></div>
+  <ul class="space-y-10 text-left">
     {elements.map((el) => (
       <li>
         <div class="flex items-center">
-          <span class="w-6 h-6 bg-gray-500 rounded-full"></span>
-          <h3 class="ml-4 font-bold text-gray-600">{el.title}</h3>
+          {el.logo ? (
+            <img
+              src={el.logo}
+              alt=""
+              class="relative w-12 h-12 shrink-0 rounded-lg bg-white object-contain p-1 ring-2 ring-gray-500"
+              width="48"
+              height="48"
+              loading="lazy"
+              decoding="async"
+            />
+          ) : (
+            <span class:list={["shrink-0 bg-gray-500 rounded-full", withLogos ? "w-12 h-12" : "w-6 h-6"]}></span>
+          )}
+          <h3 class="ml-4 font-bold text-gray-600 dark:text-gray-200">{el.title}</h3>
         </div>
-        <div class="ml-12">
-          <p class="text-sm text-[#4A4A4A] min-h-0">{el.subtitle}</p>
+        <div class:list={[withLogos ? "ml-16" : "ml-12"]}>
+          <p class="text-sm text-[#4A4A4A] dark:text-gray-400 min-h-0">
+            {el.subtitle}
+            {el.duration && (
+              <>
+                {" · "}
+                <span data-duration-start={el.liveDurationStart}>{el.duration}</span>
+              </>
+            )}
+          </p>
+          {el.description && el.description.length > 0 && (
+            <ul class="mt-2 list-disc pl-5 space-y-1 text-gray-700 dark:text-gray-300">
+              {el.description.map((item) => <li>{item}</li>)}
+            </ul>
+          )}
+          {el.techs && el.techs.length > 0 && (
+            <div class="mt-3 flex flex-wrap gap-1.5">
+              {el.techs.map((tech) => {
+                const icon = techIcons[tech];
+                return (
+                  <span class="inline-flex items-center gap-1.5 text-xs rounded-full px-2.5 py-1 bg-[#EDE8D8] dark:bg-gray-700 text-gray-700 dark:text-gray-200">
+                    {icon && (
+                      <img
+                        src={icon.path}
+                        alt=""
+                        class:list={["w-4 h-4 object-contain", { "dark:invert": icon.invertInDark }]}
+                        width="16"
+                        height="16"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    )}
+                    {tech}
+                  </span>
+                );
+              })}
+            </div>
+          )}
         </div>
       </li>
     ))}

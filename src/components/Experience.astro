@@ -1,11 +1,12 @@
 ---
 import Timeline from "./Timeline.astro";
-import { experience, studies } from "../data/experience";
+import { experience } from "../data/experience";
+import { CURRENT, formatDuration } from "../data/duration";
 ---
 
 <section
   id="experience"
-  class="flex items-start justify-center flex-col text-center sm:flex-row mt-10 sm:space-x-10 space-y-10 sm:space-y-0 fade-in"
+  class="flex flex-col items-center text-center mt-10 px-4 fade-in"
 >
   <h2 class="text-2xl w-full mb-4 sr-only">Experiencia como Programador Backend</h2>
   <Timeline
@@ -13,13 +14,20 @@ import { experience, studies } from "../data/experience";
     elements={experience.map((e) => ({
       title: `${e.place}, ${e.title}`,
       subtitle: `${e.start} - ${e.end}`,
-    }))}
-  />
-  <Timeline
-    title="Estudios"
-    elements={studies.map((s) => ({
-      title: `${s.title}, ${s.status}`,
-      subtitle: s.place,
+      logo: e.logo,
+      duration: formatDuration(e.start, e.end),
+      liveDurationStart: e.end === CURRENT ? e.start : undefined,
+      description: e.description,
+      techs: e.techs,
     }))}
   />
 </section>
+
+<script>
+  import { CURRENT, formatDuration } from "../data/duration";
+
+  // The build-time value goes stale for ongoing jobs; refresh it with today's date.
+  document.querySelectorAll<HTMLElement>("[data-duration-start]").forEach((el) => {
+    el.textContent = formatDuration(el.dataset.durationStart!, CURRENT);
+  });
+</script>
