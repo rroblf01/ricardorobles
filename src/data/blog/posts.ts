@@ -1,5 +1,12 @@
 export const blogPosts = [
   {
+    slug: "crea-un-servidor-mcp-con-pydantic-ai",
+    title: "Cómo crear un servidor MCP con Pydantic AI",
+    date: "2026-11-24",
+    description: "Guía práctica para crear un servidor MCP en Python con FastMCP y Pydantic AI: herramientas tipadas, respuestas estructuradas con LLM, cliente y tests sin gastar tokens.",
+    tags: ["Python", "IA", "MCP", "Pydantic AI", "Backend"]
+  },
+  {
     slug: "fastapi-vs-django-cuando-usar-cada-uno",
     title: "FastAPI vs Django: Cuándo usar cada uno",
     date: "2026-05-28",

@@ -1,3 +1,4 @@
+import { content as servidorMcp } from "./crea-un-servidor-mcp-con-pydantic-ai.ts";
 import { content as fastapiVSDjango } from "./fastapi-vs-django-cuando-usar-cada-uno.ts";
 import { content as migrarGo } from "./migrar-aplicaciones-python-a-go.ts";
 import { content as escribirRust } from "./escribir-librerias-python-en-rust.ts";
@@ -33,6 +34,7 @@ import { content as dockerPython } from "./docker-python-produccion.ts";
 import { content as redisCaching } from "./redis-caching-python-backend.ts";
 
 export const contentMap: Record<string, string> = {
+  "crea-un-servidor-mcp-con-pydantic-ai": servidorMcp,
   "fastapi-vs-django-cuando-usar-cada-uno": fastapiVSDjango,
   "migrar-aplicaciones-python-a-go": migrarGo,
   "escribir-librerias-python-en-rust": escribirRust,
